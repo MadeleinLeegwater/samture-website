@@ -168,15 +168,15 @@
 <section>
   <div class="wrap">
     <p class="eyebrow">The ecosystem</p>
-    <h1>Boutique at the helm. <b>Never small behind it.</b></h1>
-    <p class="lede">One accountable architect leads every engagement — that is the boutique promise. Behind it works a vetted, growing ecosystem of <b>currently some twelve specialised partners</b> across Europe, the Gulf and Asia. Samture runs multiple large programmes in parallel, today: small is a choice about attention, not a ceiling on capacity.</p>
+    <h1>Boutique at the helm. Never small behind it.</h1>
+    <p class="lede">One accountable architect leads every engagement — that is the boutique promise. Behind it works a vetted, growing ecosystem of currently some twelve specialised partners across Europe, the Gulf and Asia. Samture runs multiple large programmes in parallel, today: small is a choice about attention, not a ceiling on capacity.</p>
   </div>
 </section>
 
 <section class="band-white">
   <div class="wrap">
     <p class="eyebrow">How it is organised</p>
-    <h2>One counterpart. One architecture. <b>One accountability.</b></h2>
+    <h2>One counterpart. One architecture. One accountability.</h2>
     <div class="cards c2">
       <div class="card c-navy"><span class="k">The rule</span><h3>Samture faces the client</h3>
         <p>Samture is your contract party and your single counterpart. Partners deliver under our architecture, our governance and our accountability — you never manage a vendor per layer.</p></div>
@@ -195,10 +195,10 @@
     <p class="eyebrow">The capabilities</p>
     <h2>Specialist depth on every layer.</h2>
     <div class="cards">
-      <div class="card c-teal"><h3>Semantic &amp; knowledge engineering</h3><p>Ontologists and knowledge-graph teams who model meaning in <b>W3C semantic standards — RDF, OWL, SKOS, SPARQL — deliberately not property graphs</b>, so meaning stays portable, reasoned over and vendor-free. Including engineers who have done this for some of the world&rsquo;s largest enterprises.</p></div>
+      <div class="card c-teal"><h3>Semantic &amp; knowledge engineering</h3><p>Ontologists and knowledge-graph teams who model meaning in W3C semantic standards — RDF, OWL, SKOS, SPARQL — deliberately not property graphs, so meaning stays portable, reasoned over and vendor-free. Including engineers who have done this for some of the world&rsquo;s largest enterprises.</p></div>
       <div class="card c-petrol"><h3>Enterprise AI delivery</h3><p>Build and integration teams that carry the architecture into production, at the scale an enterprise actually runs at.</p></div>
       <div class="card c-seafoam"><h3>Sovereign infrastructure</h3><p>Edge and in-country compute specialists, for data that is not allowed to leave — and should never have to.</p></div>
-      <div class="card c-navy"><h3>Agentic AI &amp; interfaces</h3><p>Agents, copilots and conversational AI, grounded in the knowledge layer so every answer is traceable — <b>model-agnostic, including Arabic LLMs such as Jais and Falcon</b>.</p></div>
+      <div class="card c-navy"><h3>Agentic AI &amp; interfaces</h3><p>Agents, copilots and conversational AI, grounded in the knowledge layer so every answer is traceable — model-agnostic, including Arabic LLMs such as Jais and Falcon.</p></div>
       <div class="card c-petrol"><h3>Governance &amp; compliance advisory</h3><p>Dedicated partners who advise on data governance, regulatory frameworks and audit readiness — so governance is designed into the work, never declared after it.</p></div>
     </div>
     <p class="note"><b>Every partner earns its place.</b> Before anyone touches client work, we run our own assessment — structured RFIs, benchmarked rate cards, NDAs before name-dropping — on semantic depth, delivery discipline and regulatory fitness. Twelve valued partners work with us today; not one of them skipped that assessment.</p>
@@ -209,7 +209,7 @@
   <div class="wrap">
     <p class="eyebrow">Looking ahead</p>
     <h2>An ecosystem that gives back to the region.</h2>
-    <p class="lede">We are building toward a <b>Samture Academy and Center of Excellence</b>: training local talent in knowledge crafting as a real profession — with internships for students from the region&rsquo;s universities, and in time scholarships for talented young people who would not otherwise get the chance. Ecosystems that only extract do not last. That is an architectural principle too.</p>
+    <p class="lede">We are building toward a Samture Academy and Center of Excellence: training local talent in knowledge crafting as a real profession — with internships for students from the region&rsquo;s universities, and in time scholarships for talented young people who would not otherwise get the chance. Ecosystems that only extract do not last. That is an architectural principle too.</p>
     <div class="actions">
       <a class="btn btn-solid" href="mailto:madelein@samture.com">Begin a conversation</a>
       <a class="btn btn-ghost" href="architecture.html">See the architecture the ecosystem builds</a>
@@ -224,5 +224,36 @@
     <span>Samture Management Consultancy FZCO · IFZA License 67098</span>
   </div>
 </footer>
+<style>
+  .nav a { white-space: nowrap; }
+  .menu-btn { display: none; }
+  @media (max-width: 900px) {
+    .menu-btn { display: block; margin-left: auto; background: none; border: 1px solid rgba(247,245,239,.35); color: #F7F5EF; border-radius: 2px; padding: 8px 14px; font-family: 'Montserrat','Avenir Next',sans-serif; font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; cursor: pointer; }
+    .nav nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #131320; flex-direction: column; align-items: stretch; gap: 0; padding: 8px 24px 20px; border-bottom: 1px solid rgba(247,245,239,.16); margin-left: 0; }
+    .nav nav.open { display: flex; }
+    .nav nav a { display: block !important; padding: 11px 0; font-size: 13.5px; }
+    .nav nav .cta { margin-top: 12px; text-align: center; padding: 12px 18px; }
+    header { position: sticky; }
+    .nav { position: relative; }
+  }
+  @media (max-width: 700px) {
+    .manifesto span.line, .thesis, .byline, .hero-actions { animation: none !important; opacity: 1 !important; transform: none !important; }
+  }
+</style>
+<script>
+(function(){
+  var nav = document.querySelector(".nav nav");
+  if (!nav) return;
+  var btn = document.createElement("button");
+  btn.className = "menu-btn"; btn.textContent = "Menu"; btn.setAttribute("aria-expanded", "false");
+  btn.addEventListener("click", function(){
+    var open = nav.classList.toggle("open");
+    btn.setAttribute("aria-expanded", String(open));
+    btn.textContent = open ? "Close" : "Menu";
+  });
+  nav.parentNode.insertBefore(btn, nav);
+})();
+</script>
+
 </body>
 </html>

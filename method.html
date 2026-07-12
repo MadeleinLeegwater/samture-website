@@ -168,8 +168,8 @@
 <section>
   <div class="wrap">
     <p class="eyebrow">The Samture Trusted-Production Method</p>
-    <h1>We are not a better consultancy. <b>We are a different discipline.</b></h1>
-    <p class="lede">Every consultancy now sells AI Strategy, Readiness, Roadmap, Pilot. The words have stopped meaning anything. Samture does one thing, and does it end to end: we take organisations <b>from strategy to trusted production</b> — faster in certainty, not louder in advice.</p>
+    <h1>We are not a better consultancy. We are a different discipline.</h1>
+    <p class="lede">Every consultancy now sells AI Strategy, Readiness, Roadmap, Pilot. The words have stopped meaning anything. Samture does one thing, and does it end to end: we take organisations from strategy to trusted production — faster in certainty, not louder in advice.</p>
   </div>
 </section>
 
@@ -197,7 +197,7 @@
 <section>
   <div class="wrap">
     <p class="eyebrow">What we actually sell</p>
-    <h2>Decision Confidence — <b>a decision you can defend.</b></h2>
+    <h2>Decision Confidence — a decision you can defend.</h2>
     <p class="lede">Models, graphs and platforms are components, and components are everywhere. What boards lack is certainty. After four weeks of working together, your executive team can answer five questions with evidence rather than opinion. I learned the weight of that in banking, where trust is not a value statement — it is a licence condition.</p>
     <ol class="questions">
       <li>Is this use case responsible — for us, here, now?</li>
@@ -260,5 +260,36 @@
     <span>Samture Management Consultancy FZCO · IFZA License 67098</span>
   </div>
 </footer>
+<style>
+  .nav a { white-space: nowrap; }
+  .menu-btn { display: none; }
+  @media (max-width: 900px) {
+    .menu-btn { display: block; margin-left: auto; background: none; border: 1px solid rgba(247,245,239,.35); color: #F7F5EF; border-radius: 2px; padding: 8px 14px; font-family: 'Montserrat','Avenir Next',sans-serif; font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; cursor: pointer; }
+    .nav nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #131320; flex-direction: column; align-items: stretch; gap: 0; padding: 8px 24px 20px; border-bottom: 1px solid rgba(247,245,239,.16); margin-left: 0; }
+    .nav nav.open { display: flex; }
+    .nav nav a { display: block !important; padding: 11px 0; font-size: 13.5px; }
+    .nav nav .cta { margin-top: 12px; text-align: center; padding: 12px 18px; }
+    header { position: sticky; }
+    .nav { position: relative; }
+  }
+  @media (max-width: 700px) {
+    .manifesto span.line, .thesis, .byline, .hero-actions { animation: none !important; opacity: 1 !important; transform: none !important; }
+  }
+</style>
+<script>
+(function(){
+  var nav = document.querySelector(".nav nav");
+  if (!nav) return;
+  var btn = document.createElement("button");
+  btn.className = "menu-btn"; btn.textContent = "Menu"; btn.setAttribute("aria-expanded", "false");
+  btn.addEventListener("click", function(){
+    var open = nav.classList.toggle("open");
+    btn.setAttribute("aria-expanded", String(open));
+    btn.textContent = open ? "Close" : "Menu";
+  });
+  nav.parentNode.insertBefore(btn, nav);
+})();
+</script>
+
 </body>
 </html>

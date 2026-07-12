@@ -168,7 +168,7 @@
 <section>
   <div class="wrap">
     <p class="eyebrow">Engagements</p>
-    <h1>No pilots. No proofs of concept. <b>Every step is built to reach production.</b></h1>
+    <h1>No pilots. No proofs of concept. Every step is built to reach production.</h1>
     <p class="lede">We removed the word &ldquo;PoC&rdquo; from our vocabulary — a proof of concept is permission to fail politely, and neither of us has time for that. Each engagement is scoped to survive contact with production, and each one funds the next.</p>
   </div>
 </section>
@@ -176,8 +176,8 @@
 <section class="band-white">
   <div class="wrap">
     <p class="eyebrow">Step one · 4 weeks</p>
-    <h2>Decision Sprint — <b>an evidenced executive decision.</b></h2>
-    <p class="lede">The Capability Index applied to your organisation, your data and one candidate use case. Four weeks later your board holds a decision it can defend: a <b>go</b>, or a <b>prepare</b> with a concrete path.</p>
+    <h2>Decision Sprint — an evidenced executive decision.</h2>
+    <p class="lede">The Capability Index applied to your organisation, your data and one candidate use case. Four weeks later your board holds a decision it can defend: a go, or a prepare with a concrete path.</p>
     <div class="cards">
       <div class="card c-petrol"><span class="k">What we do</span><h3>Measure, not opine</h3>
         <ul><li>Capability Index across all eight domains</li><li>Structural probe of your data landscape</li><li>Use-case selection on business value and feasibility</li><li>Regulatory fit (PDPL, DIFC, ADGM, CBUAE, DOH)</li></ul></div>
@@ -192,7 +192,7 @@
 <section>
   <div class="wrap">
     <p class="eyebrow">Step two · 6 weeks</p>
-    <h2>Cornerstone Sprint — <b>the first production-grade build.</b></h2>
+    <h2>Cornerstone Sprint — the first production-grade build.</h2>
     <p class="lede">A cornerstone sets the line for every stone that follows. The first controlled implementation on the real architecture — not an experiment, but the reference for everything after it.</p>
     <div class="cards">
       <div class="card c-petrol"><span class="k">What we build</span><h3>The foundation, live</h3>
@@ -208,8 +208,8 @@
 <section class="band-white">
   <div class="wrap">
     <p class="eyebrow">Step three</p>
-    <h2>Scale — <b>the engine runs the enterprise.</b></h2>
-    <p class="lede">The architecture proven in the Cornerstone extends across domains and departments. Governance, semantics and security travel with it, because they were the structure from day one — which is why <b>the second use case gets cheaper</b>, and the third cheaper still.</p>
+    <h2>Scale — the engine runs the enterprise.</h2>
+    <p class="lede">The architecture proven in the Cornerstone extends across domains and departments. Governance, semantics and security travel with it, because they were the structure from day one — which is why the second use case gets cheaper, and the third cheaper still.</p>
     <p class="note"><b>Commercially deliberate:</b> sprint fees are credited in full against the implementation phase that follows. Scope and investment are discussed in conversation — every engagement starts with a structural assessment, not a rate card. And if the honest answer after the Decision Sprint is &ldquo;prepare&rdquo;, you will hear exactly that: the Blueprint then becomes your preparation plan, not a sales document.</p>
     <div class="actions">
       <a class="btn btn-solid" href="mailto:madelein@samture.com">Discuss a Decision Sprint</a>
@@ -226,5 +226,36 @@
     <span>Samture Management Consultancy FZCO · IFZA License 67098</span>
   </div>
 </footer>
+<style>
+  .nav a { white-space: nowrap; }
+  .menu-btn { display: none; }
+  @media (max-width: 900px) {
+    .menu-btn { display: block; margin-left: auto; background: none; border: 1px solid rgba(247,245,239,.35); color: #F7F5EF; border-radius: 2px; padding: 8px 14px; font-family: 'Montserrat','Avenir Next',sans-serif; font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; cursor: pointer; }
+    .nav nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #131320; flex-direction: column; align-items: stretch; gap: 0; padding: 8px 24px 20px; border-bottom: 1px solid rgba(247,245,239,.16); margin-left: 0; }
+    .nav nav.open { display: flex; }
+    .nav nav a { display: block !important; padding: 11px 0; font-size: 13.5px; }
+    .nav nav .cta { margin-top: 12px; text-align: center; padding: 12px 18px; }
+    header { position: sticky; }
+    .nav { position: relative; }
+  }
+  @media (max-width: 700px) {
+    .manifesto span.line, .thesis, .byline, .hero-actions { animation: none !important; opacity: 1 !important; transform: none !important; }
+  }
+</style>
+<script>
+(function(){
+  var nav = document.querySelector(".nav nav");
+  if (!nav) return;
+  var btn = document.createElement("button");
+  btn.className = "menu-btn"; btn.textContent = "Menu"; btn.setAttribute("aria-expanded", "false");
+  btn.addEventListener("click", function(){
+    var open = nav.classList.toggle("open");
+    btn.setAttribute("aria-expanded", String(open));
+    btn.textContent = open ? "Close" : "Menu";
+  });
+  nav.parentNode.insertBefore(btn, nav);
+})();
+</script>
+
 </body>
 </html>
