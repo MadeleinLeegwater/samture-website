@@ -134,6 +134,19 @@
   .dc-note { margin-top: 26px; font-size: 14.5px; color: var(--ink-muted); max-width: 48ch; }
   .dc-note b { color: var(--ink); }
 
+
+  /* ————— patterns from the field ————— */
+  .patterns { border-top: 1px solid var(--line-paper); }
+  .patterns { --petrol: #0F6E74; --seafoam: #4FAE87; --teal-deep: #128B89; }
+  .pat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 44px; }
+  @media (max-width: 900px) { .pat-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .pat-grid { grid-template-columns: 1fr; } }
+  .pat { background: #FFFFFF; border: 1px solid var(--line-paper); border-top: 3px solid var(--pc, var(--teal)); border-radius: 2px; padding: 22px 20px 18px; }
+  .pat:nth-child(3n+1) { --pc: var(--teal-deep); } .pat:nth-child(3n+2) { --pc: var(--petrol); } .pat:nth-child(3n) { --pc: var(--seafoam); }
+  .pat h3 { margin: 0 0 8px; font-size: 15.5px; font-weight: 700; }
+  .pat p { margin: 0; font-size: 13.5px; color: var(--ink-muted); line-height: 1.65; }
+  .pat-note { margin-top: 28px; font-size: 15px; color: var(--ink-muted); }
+
   /* ————— the work: layered architecture ————— */
   .work-grid { display: grid; grid-template-columns: minmax(300px, 6fr) 6fr; gap: clamp(32px, 5vw, 70px); align-items: start; margin-top: 44px; }
   @media (max-width: 900px) { .work-grid { grid-template-columns: 1fr; } }
@@ -367,6 +380,25 @@
   </div>
 </section>
 
+<section class="on-paper patterns" id="patterns">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Patterns from the field</p>
+      <h2>Does any of this sound familiar?</h2>
+      <p class="lede">Most organisations we speak with are not short of data, ambition or technology. What they are missing is the layer that makes it all work together — governed, connected and sovereign by design.</p>
+    </div>
+    <div class="pat-grid reveal">
+      <div class="pat"><h3>The pilot that never leaves the lab</h3><p>Three AI pilots impressed everyone; none reached production. Risk and compliance keep finding reasons — and they are right.</p></div>
+      <div class="pat"><h3>Every department has its own truth</h3><p>The same product, customer or code means something different in every system. Every report starts with a reconciliation exercise.</p></div>
+      <div class="pat"><h3>The audit question you cannot answer</h3><p>A regulator asks why the model decided that. The honest answer, today, is that nobody knows.</p></div>
+      <div class="pat"><h3>Knowledge that walks out of the door</h3><p>Your most valuable expertise lives in the heads of a few people and a million documents nobody can find.</p></div>
+      <div class="pat"><h3>The AI budget that keeps starting over</h3><p>Every use case begins from zero — new data preparation, new integration, new governance debate. Nothing compounds.</p></div>
+      <div class="pat"><h3>Sovereign by requirement</h3><p>Your data may not leave the country, and your cloud provider cannot promise that it will not.</p></div>
+    </div>
+    <p class="pat-note reveal">If one of these patterns resonates, that is usually where a good conversation starts. <a href="#conversation" style="color:#128B89;font-weight:600;text-decoration:none">Let&rsquo;s find your pattern.</a></p>
+  </div>
+</section>
+
 <section id="work">
   <div class="wrap">
     <div class="reveal" style="max-width: 780px">
@@ -463,8 +495,8 @@
     <div class="reveal">
       <p class="eyebrow">The architect</p>
       <blockquote class="board">
-        &ldquo;She sees patterns we had not yet recognised, and connects things we never thought could be connected.&rdquo;
-        <footer>How boards describe working with her</footer>
+        &ldquo;She has a rare talent for combining strategic vision with the ability to bring people, partnerships, and ecosystems together around meaningful innovation.&rdquo;
+        <footer>Walter Pijls &middot; CEO, Brightlands Smart Services Campus</footer>
       </blockquote>
       <p class="founder-bio">I have spent 25 years building and running the systems organisations depend on — in banking, healthcare, logistics and technology, on both the client side and the delivery side. Regulated industries taught me that trust is architecture, not intention. Samture is deliberately boutique: I lead every engagement personally, from first assessment to production, with a complete ecosystem of specialist teams behind it. Boutique means you always know who is accountable. It has never meant small.</p>
       <a class="media-card" href="https://www.youtube.com/watch?v=PjmGxq1HHJU&t=0s" target="_blank" rel="noopener">
