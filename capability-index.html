@@ -369,8 +369,8 @@
 
     document.getElementById("ass-redo").onclick = () => { answers.forEach(a => a.fill(null)); step = 0; render(); scrollTop(); };
     const lines = D.map((d, i) => d.n + ": " + ds[i] + "/100 (" + (ds[i] > 50 ? "strengthen" : "priority") + ")").join("\n");
-    const mailBody = "Dear Madelein,\n\nI completed the Samture readiness assessment.\n\nOverall readiness: " + overall + "/100 — " + level[0] + "\n\n" + lines + "\n\nWhere to begin: " + begin.join(" and ") + "\n\nPlease send me the per-domain follow-up questions.\n\nName:\nRole:\nOrganisation:";
-    document.getElementById("ass-mail").href = "mailto:madelein@samture.com?subject=" + encodeURIComponent("Readiness assessment: " + overall + "/100 — " + level[0]) + "&body=" + encodeURIComponent(mailBody);
+    const mailBody = "Dear Samture team,\n\nI completed the Samture readiness assessment.\n\nOverall readiness: " + overall + "/100 — " + level[0] + "\n\n" + lines + "\n\nWhere to begin: " + begin.join(" and ") + "\n\nPlease send me the per-domain follow-up questions.\n\nName:\nRole:\nOrganisation:";
+    document.getElementById("ass-mail").href = "mailto:operations@samture.com?subject=" + encodeURIComponent("Readiness assessment: " + overall + "/100 — " + level[0]) + "&body=" + encodeURIComponent(mailBody);
   }
 
   render();
