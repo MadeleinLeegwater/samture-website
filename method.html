@@ -291,5 +291,63 @@
 })();
 </script>
 
+<style>
+  .mailfix-veil { position: fixed; inset: 0; background: rgba(19,19,32,.55); z-index: 200; display: none; align-items: center; justify-content: center; padding: 24px; }
+  .mailfix-veil.open { display: flex; }
+  .mailfix-card { background: #FFFFFF; color: #1A1A2E; border-radius: 2px; border-top: 4px solid #22B8B5; max-width: 460px; width: 100%; padding: 28px; font-family: 'Montserrat','Avenir Next','Segoe UI',sans-serif; box-shadow: 0 18px 48px rgba(19,19,32,.35); }
+  .mailfix-card h4 { margin: 0 0 6px; font-size: 16px; font-weight: 700; }
+  .mailfix-card p { margin: 0 0 16px; font-size: 13.5px; color: #45456B; line-height: 1.6; }
+  .mailfix-addr { font-size: 15px; font-weight: 600; color: #128B89; margin: 0 0 18px; word-break: break-all; }
+  .mailfix-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .mailfix-row button, .mailfix-row a { font-family: inherit; font-size: 11.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; padding: 11px 18px; border-radius: 2px; cursor: pointer; text-decoration: none; border: 1px solid rgba(26,26,46,.2); background: #FFFFFF; color: #1A1A2E; }
+  .mailfix-row .prim { background: #22B8B5; border-color: #22B8B5; color: #131320; }
+  .mailfix-close { margin-top: 14px; background: none; border: none; font-family: inherit; font-size: 11px; color: #45456B; cursor: pointer; text-decoration: underline; padding: 0; }
+</style>
+<script>
+(function(){
+  var veil = document.createElement("div");
+  veil.className = "mailfix-veil";
+  veil.innerHTML = '<div class="mailfix-card" role="dialog" aria-modal="true">'
+    + '<h4>Reach us by email</h4>'
+    + '<p id="mailfix-sub">Choose what works on this device.</p>'
+    + '<p class="mailfix-addr" id="mailfix-addr"></p>'
+    + '<div class="mailfix-row">'
+    + '<a class="prim" id="mailfix-open" href="#">Open mail app</a>'
+    + '<button id="mailfix-copy" type="button">Copy address</button>'
+    + '<button id="mailfix-copybody" type="button" style="display:none">Copy message</button>'
+    + '</div>'
+    + '<button class="mailfix-close" id="mailfix-close" type="button">Close</button></div>';
+  document.body.appendChild(veil);
+  var curBody = "";
+  function decode(s){ try { return decodeURIComponent(s); } catch(e) { return s; } }
+  document.addEventListener("click", function(e){
+    var a = e.target.closest ? e.target.closest('a[href^="mailto:"]') : null;
+    if (!a) return;
+    e.preventDefault();
+    var href = a.getAttribute("href");
+    var addr = href.slice(7).split("?")[0];
+    var m = href.match(/[?&]body=([^&]*)/);
+    curBody = m ? decode(m[1]) : "";
+    document.getElementById("mailfix-addr").textContent = addr;
+    document.getElementById("mailfix-open").setAttribute("href", href);
+    document.getElementById("mailfix-copybody").style.display = curBody ? "" : "none";
+    document.getElementById("mailfix-sub").textContent = curBody
+      ? "Your message is pre-filled. Open your mail app, or copy the address and message to send it from anywhere."
+      : "Open your mail app, or copy the address and write to us from anywhere.";
+    veil.classList.add("open");
+  });
+  function copy(text, btn, done){
+    (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).then(function(){
+      var t = btn.textContent; btn.textContent = done; setTimeout(function(){ btn.textContent = t; }, 1800);
+    }).catch(function(){ window.prompt("Copy:", text); });
+  }
+  document.getElementById("mailfix-copy").addEventListener("click", function(){ copy(document.getElementById("mailfix-addr").textContent, this, "Copied"); });
+  document.getElementById("mailfix-copybody").addEventListener("click", function(){ copy(curBody, this, "Copied"); });
+  document.getElementById("mailfix-close").addEventListener("click", function(){ veil.classList.remove("open"); });
+  veil.addEventListener("click", function(e){ if (e.target === veil) veil.classList.remove("open"); });
+  document.getElementById("mailfix-open").addEventListener("click", function(){ veil.classList.remove("open"); });
+})();
+</script>
+
 </body>
 </html>
