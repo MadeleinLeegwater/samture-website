@@ -143,9 +143,15 @@
   @media (max-width: 600px) { .pat-grid { grid-template-columns: 1fr; } }
   .pat { background: #FFFFFF; border: 1px solid var(--line-paper); border-top: 3px solid var(--pc, var(--teal)); border-radius: 2px; padding: 22px 20px 18px; }
   .pat:nth-child(3n+1) { --pc: var(--teal-deep); } .pat:nth-child(3n+2) { --pc: var(--petrol); } .pat:nth-child(3n) { --pc: var(--seafoam); }
-  .pat h3 { margin: 0 0 8px; font-size: 15.5px; font-weight: 700; }
-  .pat p { margin: 0; font-size: 13.5px; color: var(--ink-muted); line-height: 1.65; }
-  .pat-note { margin-top: 28px; font-size: 15px; color: var(--ink-muted); }
+  .pat { display: flex; flex-direction: column; gap: 10px; }
+  .pat .ind { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--pc, var(--teal-deep)); }
+  .pat h3 { margin: 0; font-size: 15.5px; font-weight: 700; line-height: 1.4; }
+  .pat .whatif { margin: 0; font-size: 13px; font-style: italic; color: var(--pc, var(--teal-deep)); line-height: 1.6; }
+  .pat p { margin: 0; font-size: 13.5px; color: var(--ink-muted); line-height: 1.65; flex: 1; }
+  .pat .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .pat .tags span { font-size: 9.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); border: 1px solid var(--line-paper); border-radius: 2px; padding: 3px 8px; }
+  .pat .take { margin: 0; padding-top: 12px; border-top: 1px solid var(--line-paper); font-size: 12.5px; font-style: italic; color: var(--ink-muted); line-height: 1.6; }
+  .pat-note { margin-top: 28px; font-size: 14px; font-style: italic; color: var(--ink-muted); max-width: 90ch; }
 
   /* ————— the work: layered architecture ————— */
   .work-grid { display: grid; grid-template-columns: minmax(300px, 6fr) 6fr; gap: clamp(32px, 5vw, 70px); align-items: start; margin-top: 44px; }
@@ -388,14 +394,38 @@
       <p class="lede">Most organisations we speak with are not short of data, ambition or technology. What they are missing is the layer that makes it all work together — governed, connected and sovereign by design.</p>
     </div>
     <div class="pat-grid reveal">
-      <div class="pat"><h3>The pilot that never leaves the lab</h3><p>Three AI pilots impressed everyone; none reached production. Risk and compliance keep finding reasons — and they are right.</p></div>
-      <div class="pat"><h3>Every department has its own truth</h3><p>The same product, customer or code means something different in every system. Every report starts with a reconciliation exercise.</p></div>
-      <div class="pat"><h3>The audit question you cannot answer</h3><p>A regulator asks why the model decided that. The honest answer, today, is that nobody knows.</p></div>
-      <div class="pat"><h3>Knowledge that walks out of the door</h3><p>Your most valuable expertise lives in the heads of a few people and a million documents nobody can find.</p></div>
-      <div class="pat"><h3>The AI budget that keeps starting over</h3><p>Every use case begins from zero — new data preparation, new integration, new governance debate. Nothing compounds.</p></div>
-      <div class="pat"><h3>Sovereign by requirement</h3><p>Your data may not leave the country, and your cloud provider cannot promise that it will not.</p></div>
+      <div class="pat"><span class="ind">01 — Finance</span><h3>When a bank&rsquo;s voice became its compliance strength</h3>
+        <p class="whatif">What if AI agents could reason across every product, policy and regulation — without touching core banking systems?</p>
+        <p>Legacy systems stayed untouched. A knowledge graph connected product logic, compliance rules and customer data through linked data layers. Key-based access control kept sensitive data within the institution at every step — the keys stayed with the bank. The result was not just faster service: it was service that could be audited, explained and trusted.</p>
+        <div class="tags"><span>key-based access</span><span>knowledge graph</span><span>zero-trust</span></div>
+        <p class="take">The most powerful AI doesn&rsquo;t replace your systems. It makes them sovereign, connected and accountable.</p></div>
+      <div class="pat"><span class="ind">02 — Government &amp; smart cities</span><h3>What a city learned to hear</h3>
+        <p class="whatif">What if infrastructure monitoring went beyond sensors — connecting asset history, maintenance records and regulatory thresholds into one reasoning layer?</p>
+        <p>A knowledge graph connected real-time sensor feeds with asset histories, maintenance records and weather patterns — across existing systems, without replacing any. Inference ran at the edge, within jurisdiction. Deterioration flagged weeks early. Maintenance teams received prioritised recommendations — final decisions stayed with the people who knew the terrain.</p>
+        <div class="tags"><span>sovereignty</span><span>edge compute</span><span>human-in-the-loop</span></div>
+        <p class="take">Sensors tell you what is happening. A sovereign knowledge layer tells you what it means — and keeps the right people in control.</p></div>
+      <div class="pat"><span class="ind">03 — Healthcare</span><h3>When disconnected data became clinical intelligence</h3>
+        <p class="whatif">What if clinical decisions could draw on operational, financial and regulatory data simultaneously — without rebuilding a single system?</p>
+        <p>Clinical systems, facility management, compliance reporting and procurement all existed — in isolation. A semantic knowledge layer connected them through linked data, without replacing any system. Sensitive data never left the institution. Security was embedded in the architecture from the start. Teams could suddenly reason across domains that had never spoken to each other.</p>
+        <div class="tags"><span>sovereignty</span><span>linked data</span><span>on-premise</span></div>
+        <p class="take">The most dangerous data gap is not missing data. It is data that exists but cannot be connected — safely.</p></div>
+      <div class="pat"><span class="ind">04 — Real estate</span><h3>The building that finally understood its own access</h3>
+        <p class="whatif">What if every access decision — across tenants, contractors, compliance and facilities — was governed by one intelligent layer?</p>
+        <p>A large real estate operator managed access across hundreds of spaces with disconnected systems. A knowledge graph connected tenant data, lease agreements, compliance requirements and facility management through linked data. Key-based access control replaced manual processes — no infrastructure overhaul required. Agentic workflows handled exceptions in real time. Audit trails became automatic.</p>
+        <div class="tags"><span>key-based access</span><span>agentic workflows</span><span>knowledge graph</span></div>
+        <p class="take">Intelligent automation earns trust when institutional knowledge, security and governance are built in — not bolted on.</p></div>
+      <div class="pat"><span class="ind">05 — Banking &amp; customer operations</span><h3>When consistency became the differentiator</h3>
+        <p class="whatif">What if every agent — human or AI — across every region and channel reasoned from exactly the same governed source of truth?</p>
+        <p>A unified knowledge graph connected existing legacy systems — core banking, CRM, compliance, product catalogues — through linked data. No system replaced. Encrypted, key-based security ensured every interaction drew from the right data, for the right agent, in the right context. Variance across regions disappeared. Compliance maintained across every touchpoint, in every language.</p>
+        <div class="tags"><span>key-based access</span><span>legacy integration</span><span>zero-trust</span></div>
+        <p class="take">Scale doesn&rsquo;t break quality. Disconnected, ungoverned data does.</p></div>
+      <div class="pat"><span class="ind">06 — Aviation</span><h3>The hub that finally knew its own complexity</h3>
+        <p class="whatif">What if every system in a passenger journey — check-in, baggage, transfer, gate, ground operations — could reason together in real time?</p>
+        <p>Flight systems, baggage tracking, ground operations and passenger communications — all existing, all siloed. A knowledge graph connected them through existing APIs, no overhaul required. Agentic workflows orchestrated real-time decisions across the full journey, every action logged and traceable. Ground teams received live intelligence — operational calls stayed with experienced staff who understood what the data couldn&rsquo;t.</p>
+        <div class="tags"><span>agentic execution</span><span>human-in-the-loop</span><span>linked data</span></div>
+        <p class="take">Complex operations don&rsquo;t need more data. They need data that understands its own relationships — and knows when to hand back to a human.</p></div>
     </div>
-    <p class="pat-note reveal">If one of these patterns resonates, that is usually where a good conversation starts. <a href="#conversation" style="color:#128B89;font-weight:600;text-decoration:none">Let&rsquo;s find your pattern.</a></p>
+    <p class="pat-note reveal">These are patterns — drawn from real deployments and adjacent fields, anonymised and shared because the challenges tend to travel. If you recognise your organisation in one of them, <a href="#conversation" style="color:#128B89;font-weight:600;text-decoration:none">that is worth a conversation</a>.</p>
   </div>
 </section>
 
@@ -449,6 +479,7 @@
     <div class="index-verdict reveal">
       <div class="index-count"><span id="count">0</span><small> / 8</small></div>
       <p id="verdict"><b>Every organisation starts somewhere.</b> The Index is not a maturity score. It shows where to begin, and in which order — which is exactly the work of a Decision Sprint.</p>
+      <a href="capability-index.html">Take the full assessment</a>
       <a id="mailres" href="mailto:madelein@samture.com">Email me my result</a>
       <a href="#engage">See the engagement</a>
     </div>

@@ -169,16 +169,51 @@
   <div class="wrap">
     <p class="eyebrow">The Samture Capability Index</p>
     <h1>Eight domains decide whether AI compounds or collapses.</h1>
-    <p class="lede">Most readiness assessments bury you in maturity levels and two hundred questions. The Index does the opposite: eight domains, each with one question a board should be able to answer. It is not a score — it is a map of where to begin, and in which order. Mark the domains where your organisation is genuinely confident today; nothing here leaves your browser.</p>
-    <div class="index-grid" id="domains"></div>
-    <div class="index-verdict">
-      <div class="index-count"><span id="count">0</span><small> / 8</small></div>
-      <p id="verdict"><b>Every organisation starts somewhere.</b> The Index is not a maturity score. It shows where to begin, and in which order — which is exactly the work of a Decision Sprint.</p>
-      <a id="mailres" class="btn btn-solid" href="mailto:madelein@samture.com">Email me my result</a>
-      <a class="btn btn-ghost" href="engagements.html">See the engagement</a>
+    <p class="lede">Most readiness assessments bury you in maturity levels and two hundred questions. The Index does the opposite: eight domains, twenty-four honest statements, three minutes. You get a readiness score, a report with per-domain advice — and above all an order: where to begin, and why. Nothing leaves your browser until you choose to send it.</p>
+    <style>
+      .ass-shell { margin-top: 44px; background: var(--card); border: 1px solid var(--line); border-radius: 2px; padding: clamp(22px, 4vw, 44px); max-width: 860px; }
+      .ass-progress { height: 3px; background: var(--line); border-radius: 2px; margin-bottom: 28px; overflow: hidden; }
+      .ass-progress i { display: block; height: 100%; background: var(--teal); width: 0%; transition: width .4s ease; }
+      .ass-step-label { font-size: 10.5px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--teal-deep); margin: 0 0 6px; }
+      .ass-domain-title { font-size: 20px; font-weight: 600; margin: 0 0 4px; }
+      .ass-domain-title i { display: block; font-style: normal; font-weight: 600; font-size: 11px; color: var(--teal-deep); margin-top: 2px; }
+      .ass-q { padding: 18px 0; border-bottom: 1px solid var(--line); }
+      .ass-q:last-of-type { border-bottom: none; }
+      .ass-q p { margin: 0 0 12px; font-size: 15px; line-height: 1.6; }
+      .ass-opts { display: flex; gap: 8px; flex-wrap: wrap; }
+      .ass-opts button { font-family: var(--sans); font-size: 12px; font-weight: 600; letter-spacing: .06em; padding: 9px 20px; border-radius: 2px; border: 1px solid var(--line); background: var(--card); color: var(--ink-muted); cursor: pointer; transition: all .2s ease; }
+      .ass-opts button:hover { border-color: var(--teal-deep); color: var(--teal-deep); }
+      .ass-opts button[aria-pressed="true"] { background: rgba(34,184,181,.14); border-color: var(--teal-deep); color: var(--teal-deep); }
+      .ass-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 26px; gap: 16px; flex-wrap: wrap; }
+      .ass-nav .hint { font-size: 12px; color: var(--ink-muted); }
+      .ass-btn { font-family: var(--sans); font-size: 12.5px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; padding: 12px 26px; border-radius: 2px; border: none; cursor: pointer; background: var(--teal); color: var(--deep); }
+      .ass-btn[disabled] { opacity: .35; cursor: not-allowed; }
+      .ass-btn.ghost { background: none; border: 1px solid var(--line); color: var(--ink); }
+      .rep-score { display: flex; gap: 34px; align-items: center; flex-wrap: wrap; padding-bottom: 26px; border-bottom: 1px solid var(--line); margin-bottom: 26px; }
+      .rep-num { font-weight: 300; font-size: 64px; line-height: 1; font-variant-numeric: tabular-nums; color: var(--teal-deep); }
+      .rep-num small { font-size: 22px; color: var(--ink-muted); }
+      .rep-level { font-size: 16px; font-weight: 700; margin: 0 0 4px; }
+      .rep-summary { margin: 0; font-size: 14px; color: var(--ink-muted); max-width: 48ch; }
+      .rep-row { display: grid; grid-template-columns: 190px 1fr 46px; gap: 14px; align-items: center; padding: 9px 0; font-size: 13px; }
+      @media (max-width: 620px) { .rep-row { grid-template-columns: 1fr 60px; } .rep-row .bar { grid-column: 1 / -1; } }
+      .rep-row .dn { font-weight: 600; }
+      .rep-row .bar { height: 8px; background: var(--line); border-radius: 2px; overflow: hidden; }
+      .rep-row .bar i { display: block; height: 100%; background: var(--bc, var(--teal)); }
+      .rep-row .pct { text-align: right; font-variant-numeric: tabular-nums; color: var(--ink-muted); font-weight: 600; }
+      .rep-begin { margin: 24px 0; padding: 20px 24px; border-left: 4px solid var(--teal-deep); background: rgba(34,184,181,.08); font-size: 14px; }
+      .rep-begin b { display: block; margin-bottom: 4px; }
+      .rep-advice h4 { margin: 18px 0 4px; font-size: 13.5px; font-weight: 700; }
+      .rep-advice h4 span { font-weight: 600; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; margin-left: 8px; }
+      .rep-advice p { margin: 0; font-size: 13.5px; color: var(--ink-muted); line-height: 1.65; }
+      .rep-note { margin-top: 24px; font-size: 12px; color: var(--ink-muted); }
+    </style>
+    <div class="ass-shell" id="assessment">
+      <div class="ass-progress"><i id="ass-bar"></i></div>
+      <div id="ass-body"></div>
     </div>
   </div>
 </section>
+
 
 <section class="band-white">
   <div class="wrap">
@@ -201,47 +236,147 @@
   </div>
 </section>
 <script>
-  const domains = [
-    { n:"Strategy", q:"Do you know which AI decisions are yours to make, and which you have quietly outsourced to vendors?" },
-    { n:"Semantic Intelligence", q:"Does your data mean the same thing in every system that touches it?", moat:true },
-    { n:"Data Foundation", q:"Could you trace any AI answer back to the source it came from?" },
-    { n:"AI & Technology", q:"Is your stack chosen for the next decade, or inherited from the last one?" },
-    { n:"Trust & Governance", q:"If a regulator asked why the model decided that, could you answer?" },
-    { n:"Operating Model", q:"When AI reaches production, who owns it on Monday morning?" },
-    { n:"People & Adoption", q:"Do your people trust the system enough to act on what it tells them?" },
-    { n:"Performance & Scale", q:"Does the second use case get cheaper, or does every project start from zero?" }
+(function(){
+  const D = [
+    { n: "Strategy",
+      q: ["We have a prioritised list of AI use cases, chosen on business value — not on what vendors demonstrated.",
+          "Our executive team can name who owns each AI decision: build, buy, partner or stop.",
+          "We know which AI ambitions regulation allows us today — and which it does not yet."],
+      low: "Make AI decisions explicit before anything else: one owned use-case portfolio, chosen on value and regulatory fit. Until that exists, vendors are quietly deciding your strategy for you.",
+      high: "Solid. Pressure-test the portfolio against regulation before each budget commits, and revisit ownership yearly." },
+    { n: "Semantic Intelligence", moat: true,
+      q: ["Core business terms — customer, product, contract — have one agreed definition across our systems.",
+          "The relationships in our data are modelled explicitly (ontology, knowledge graph), not implied in application code.",
+          "Our AI answers are grounded in our own verified knowledge, not in a model's general training data."],
+      low: "This is the layer almost nobody measures, and your single biggest lever. Start with one domain: agree the definitions, model the relationships, and ground AI answers in them. Everything above this layer inherits its quality.",
+      high: "Rare — and valuable. Extend the knowledge model to adjacent domains and connect regulation and sector knowledge into it." },
+    { n: "Data Foundation",
+      q: ["We can trace any critical data point back to its source system and its owner.",
+          "Data quality is measured and owned — someone is accountable when it degrades.",
+          "Metadata and lineage exist for the data our AI would rely on."],
+      low: "Before any AI build, establish lineage and ownership for the data it will touch. Traceability is the cheapest trust you can buy.",
+      high: "Keep it visible: automate quality measurement and expose lineage to the people who rely on it." },
+    { n: "AI & Technology",
+      q: ["Our AI stack is a deliberate choice we can defend — including exit options per vendor.",
+          "We could swap or add a language model — including Arabic models — without rebuilding everything.",
+          "Integration with our core systems is architected, not a chain of point solutions."],
+      low: "Inventory your dependencies and exit options first. An inherited stack quietly dictates what your AI will never be able to do.",
+      high: "Stay model-agnostic: verify once a year that you could swap the LLM without rework." },
+    { n: "Trust & Governance",
+      q: ["If a regulator asked why the model decided that, we could answer with evidence.",
+          "Access to sensitive data is governed by design — keys, roles, context — not by exception.",
+          "PDPL, DIFC, ADGM, CBUAE or DOH requirements are explicitly mapped to our AI plans."],
+      low: "Today you could not answer the regulator. Design auditability in before an audit finding forces it: start with access-by-design and decision logging.",
+      high: "Rehearse the audit: trace one real AI answer end-to-end every quarter." },
+    { n: "Operating Model",
+      q: ["It is clear who owns an AI system once it is in production — budget, incidents, updates.",
+          "There is an escalation path for when AI output is wrong or harmful.",
+          "AI runs on structural funding, not on leftover project budget."],
+      low: "Decide who owns AI on Monday morning before anything reaches production. Unowned systems decay into risk.",
+      high: "Formalise escalation and funding so ownership survives the next reorganisation." },
+    { n: "People & Adoption",
+      q: ["The people who must act on AI output trust it enough to actually do so.",
+          "We invest in skills for working with AI — beyond a one-off training.",
+          "AI is embedded in real workflows, not a separate tool people must remember to open."],
+      low: "Adoption is trust. Involve the people who must act on AI output in its design — or they will quietly ignore it, and the investment evaporates.",
+      high: "Measure actual usage and decision impact, not training attendance." },
+    { n: "Performance & Scale",
+      q: ["Our second AI use case was — or would clearly be — cheaper than the first.",
+          "Models, data and definitions are reused across projects.",
+          "We measure whether AI actually delivers the value we projected."],
+      low: "If every use case starts from zero, you are funding projects, not building capability. Reuse has to be designed — it never happens by hope.",
+      high: "Track cost per use case over time. It should fall; if it does not, the foundation needs attention." }
   ];
-  const grid = document.getElementById("domains");
-  domains.forEach((d,i)=>{
-    const b=document.createElement("button");
-    b.className="domain"; b.setAttribute("aria-pressed","false");
-    const m=d.moat?'<i>the one almost nobody measures</i>':'';
-    b.innerHTML='<span class="num">0'+(i+1)+'</span><span class="name">'+d.n+m+'</span><p class="q">'+d.q+'</p><span class="state">Mark as confident</span>';
-    b.addEventListener("click",()=>{
-      const on=b.getAttribute("aria-pressed")==="true";
-      b.setAttribute("aria-pressed",String(!on));
-      b.querySelector(".state").textContent=!on?"Confident today":"Mark as confident";
-      update();
-    });
-    grid.appendChild(b);
-  });
-  function update(){
-    const n=grid.querySelectorAll('[aria-pressed="true"]').length;
-    document.getElementById("count").textContent=n;
-    const v=document.getElementById("verdict");
-    if(n===0) v.innerHTML="<b>Every organisation starts somewhere.</b> The Index is not a maturity score. It shows where to begin, and in which order — which is exactly the work of a Decision Sprint.";
-    else if(n===8) v.innerHTML="<b>All eight?</b> Then you are either exceptional, or due an independent second opinion. Both are conversations I would genuinely enjoy.";
-    else v.innerHTML="<b>Confident in "+n+" of 8.</b> The other "+(8-n)+" "+((8-n)===1?"is":"are")+" exactly what a Decision Sprint resolves — in four weeks, with evidence.";
-  
-    const mail = document.getElementById("mailres");
-    if (mail) {
-      const names = domains.map(d => d.n), conf = [], rest = [];
-      grid.querySelectorAll(".domain").forEach((el, i) => { (el.getAttribute("aria-pressed") === "true" ? conf : rest).push(names[i]); });
-      const body = "Dear Madelein,\n\nI ran the Capability Index on our organisation. Result: " + n + " of 8.\n\nConfident today: " + (conf.join(", ") || "-") + "\nNot yet: " + (rest.join(", ") || "-") + "\n\nI would like to receive the follow-up questions per domain.\n\nName:\nRole:\nOrganisation:";
-      mail.href = "mailto:madelein@samture.com?subject=" + encodeURIComponent("Capability Index result: " + n + "/8") + "&body=" + encodeURIComponent(body);
-    }
+  const OPTS = [["Yes", 2], ["Partly", 1], ["No", 0]];
+  const answers = D.map(() => [null, null, null]);
+  let step = 0;
+  const body = document.getElementById("ass-body");
+  const bar = document.getElementById("ass-bar");
+
+  function render() {
+    bar.style.width = (step === 0 ? 0 : Math.min(100, (step / (D.length + 1)) * 100)) + "%";
+    if (step === 0) return intro();
+    if (step <= D.length) return domain(step - 1);
+    report();
   }
+
+  function intro() {
+    body.innerHTML = '<p class="ass-step-label">Readiness assessment</p>'
+      + '<h3 class="ass-domain-title">Twenty-four honest statements. One readiness score.</h3>'
+      + '<p style="font-size:14.5px; color:var(--ink-muted); max-width:56ch">Three statements per domain, answered with Yes, Partly or No. It takes about three minutes, and honesty beats optimism — the score is only useful if it is true. Nothing leaves your browser until you choose to send it.</p>'
+      + '<div class="ass-nav"><span class="hint">8 domains &middot; &plusmn;3 minutes</span><button class="ass-btn" id="ass-start">Start the assessment</button></div>';
+    document.getElementById("ass-start").onclick = () => { step = 1; render(); };
+  }
+
+  function domain(i) {
+    const d = D[i];
+    body.innerHTML = '<p class="ass-step-label">Domain ' + (i + 1) + ' of ' + D.length + '</p>'
+      + '<h3 class="ass-domain-title">' + d.n + (d.moat ? '<i>the one almost nobody measures</i>' : '') + '</h3>'
+      + d.q.map((q, j) =>
+          '<div class="ass-q"><p>' + q + '</p><div class="ass-opts" data-q="' + j + '">'
+          + OPTS.map(o => '<button type="button" data-v="' + o[1] + '" aria-pressed="' + (answers[i][j] === o[1]) + '">' + o[0] + '</button>').join("")
+          + '</div></div>').join("")
+      + '<div class="ass-nav">'
+      + '<button class="ass-btn ghost" id="ass-back">' + (i === 0 ? "Restart" : "Back") + '</button>'
+      + '<button class="ass-btn" id="ass-next"' + (answers[i].every(a => a !== null) ? "" : " disabled") + '>' + (i === D.length - 1 ? "See my readiness report" : "Next") + '</button>'
+      + '</div>';
+    body.querySelectorAll(".ass-opts").forEach(row => {
+      const j = +row.dataset.q;
+      row.querySelectorAll("button").forEach(btn => {
+        btn.onclick = () => {
+          answers[i][j] = +btn.dataset.v;
+          row.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b === btn)));
+          document.getElementById("ass-next").disabled = !answers[i].every(a => a !== null);
+        };
+      });
+    });
+    document.getElementById("ass-back").onclick = () => { if (i === 0) { answers.forEach(a => a.fill(null)); step = 0; } else step--; render(); scrollTop(); };
+    document.getElementById("ass-next").onclick = () => { step++; render(); scrollTop(); };
+  }
+
+  function scrollTop() {
+    window.scrollTo({ top: document.getElementById("assessment").offsetTop - 90, behavior: "smooth" });
+  }
+
+  function report() {
+    const ds = D.map((d, i) => Math.round(answers[i].reduce((a, b) => a + b, 0) / 6 * 100));
+    const overall = Math.round(ds.reduce((a, b) => a + b, 0) / ds.length);
+    const level = overall >= 70 ? ["Ready to move — with focus", "The foundation is largely in place. The work now is focus: proving it in production on one domain, before ambition outruns governance."]
+      : overall >= 40 ? ["Prepare — in the right order", "There is real ground to build on, and real gaps that will surface the moment AI touches production. The order of repair matters more than the speed."]
+      : ["Foundation first", "Ambition is ahead of the foundation — which is normal, and fixable. Start at the lowest layers; everything built before that will have to be rebuilt."];
+    const order = ds.map((v, i) => [v, i]).sort((a, b) => a[0] - b[0]);
+    const begin = order.slice(0, 2).map(x => D[x[1]].n);
+    const semLow = ds[1] <= 50 && begin.indexOf("Semantic Intelligence") === -1;
+
+    body.innerHTML = '<p class="ass-step-label">Your readiness report</p>'
+      + '<div class="rep-score"><div class="rep-num">' + overall + '<small> / 100</small></div>'
+      + '<div><p class="rep-level">' + level[0] + '</p><p class="rep-summary">' + level[1] + '</p></div></div>'
+      + D.map((d, i) => {
+          const c = ds[i] >= 67 ? "#4FAE87" : ds[i] >= 34 ? "#128B89" : "#0F6E74";
+          return '<div class="rep-row"><span class="dn">' + d.n + '</span><span class="bar"><i style="width:' + Math.max(4, ds[i]) + '%; background:' + c + '"></i></span><span class="pct">' + ds[i] + '</span></div>';
+        }).join("")
+      + '<div class="rep-begin"><b>Where to begin: ' + begin.join(" and ") + '.</b>'
+      + (semLow ? ' And keep an eye on Semantic Intelligence — it is the layer almost nobody measures, and everything above it inherits its quality.'
+                : ' The Index is not a grade; it is an order of work. These two domains unlock the rest.') + '</div>'
+      + '<div class="rep-advice">'
+      + D.map((d, i) => '<h4>' + d.n + '<span style="color:' + (ds[i] > 50 ? "#4FAE87" : "#0F6E74") + '">' + (ds[i] > 50 ? "strengthen" : "priority") + '</span></h4><p>' + (ds[i] > 50 ? d.high : d.low) + '</p>').join("")
+      + '</div>'
+      + '<div class="ass-nav" style="margin-top:32px">'
+      + '<button class="ass-btn ghost" id="ass-redo">Retake</button>'
+      + '<a class="ass-btn" id="ass-mail" href="#" style="text-decoration:none">Email me this report</a>'
+      + '</div>'
+      + '<p class="rep-note">The full Index — with evidence instead of self-assessment — is the work of a four-week Decision Sprint. Email the report to receive the per-domain follow-up questions, or simply to keep your result.</p>';
+
+    document.getElementById("ass-redo").onclick = () => { answers.forEach(a => a.fill(null)); step = 0; render(); scrollTop(); };
+    const lines = D.map((d, i) => d.n + ": " + ds[i] + "/100 (" + (ds[i] > 50 ? "strengthen" : "priority") + ")").join("\n");
+    const mailBody = "Dear Madelein,\n\nI completed the Samture readiness assessment.\n\nOverall readiness: " + overall + "/100 — " + level[0] + "\n\n" + lines + "\n\nWhere to begin: " + begin.join(" and ") + "\n\nPlease send me the per-domain follow-up questions.\n\nName:\nRole:\nOrganisation:";
+    document.getElementById("ass-mail").href = "mailto:madelein@samture.com?subject=" + encodeURIComponent("Readiness assessment: " + overall + "/100 — " + level[0]) + "&body=" + encodeURIComponent(mailBody);
+  }
+
+  render();
+})();
 </script>
+
 
 <footer class="site">
   <div class="wrap">
