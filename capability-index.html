@@ -364,7 +364,7 @@
       + (semLow ? ' And keep an eye on Semantic Intelligence — it is the layer almost nobody measures, and everything above it inherits its quality.'
                 : ' The Index is not a grade; it is an order of work. These two domains unlock the rest.') + '</div>'
       + '<div class="rep-advice">'
-      + D.map((d, i) => '<h4>' + d.n + '<span style="color:' + (ds[i] > 50 ? "#4FAE87" : "#0F6E74") + '">' + (ds[i] > 50 ? "strengthen" : "priority") + '</span></h4><p>' + (ds[i] > 50 ? d.high : d.low) + '</p>').join("")
+      + ds.map((v, i) => i).sort((a, b) => (ds[a] > 50) - (ds[b] > 50) || ds[a] - ds[b]).map(i => '<h4>' + D[i].n + (ds[i] > 50 ? '<span style="border:1px solid #4FAE87; color:#2E7D5B; padding:2px 9px; border-radius:2px">strengthen</span>' : '<span style="background:#0F6E74; color:#fff; padding:3px 9px; border-radius:2px">&#9650; priority</span>') + '</h4><p>' + (ds[i] > 50 ? D[i].high : D[i].low) + '</p>').join("")
       + '</div>'
       + '<div id="rep-form">'
       + '<p class="rep-form-t">Receive this report by email — including the follow-up questions per domain.</p>'
