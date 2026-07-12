@@ -206,6 +206,11 @@
       .rep-advice h4 span { font-weight: 600; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; margin-left: 8px; }
       .rep-advice p { margin: 0; font-size: 13.5px; color: var(--ink-muted); line-height: 1.65; }
       .rep-note { margin-top: 24px; font-size: 12px; color: var(--ink-muted); }
+      .rep-form-t { font-size: 14px; font-weight: 600; margin: 26px 0 12px; }
+      .rep-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+      @media (max-width: 560px) { .rep-grid { grid-template-columns: 1fr; } }
+      .rep-grid input { font-family: var(--sans); font-size: 13.5px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 2px; background: #FCFBF7; color: var(--ink); }
+      .rep-grid input:focus { outline: 2px solid var(--teal-deep); outline-offset: 1px; }
     </style>
     <div class="ass-shell" id="assessment">
       <div class="ass-progress"><i id="ass-bar"></i></div>
@@ -361,16 +366,41 @@
       + '<div class="rep-advice">'
       + D.map((d, i) => '<h4>' + d.n + '<span style="color:' + (ds[i] > 50 ? "#4FAE87" : "#0F6E74") + '">' + (ds[i] > 50 ? "strengthen" : "priority") + '</span></h4><p>' + (ds[i] > 50 ? d.high : d.low) + '</p>').join("")
       + '</div>'
-      + '<div class="ass-nav" style="margin-top:32px">'
-      + '<button class="ass-btn ghost" id="ass-redo">Retake</button>'
-      + '<a class="ass-btn" id="ass-mail" href="#" style="text-decoration:none">Email me this report</a>'
+      + '<div id="rep-form">'
+      + '<p class="rep-form-t">Receive this report by email — including the follow-up questions per domain.</p>'
+      + '<div class="rep-grid">'
+      + '<input id="rf-name" type="text" placeholder="Your name *" autocomplete="name">'
+      + '<input id="rf-role" type="text" placeholder="Your role *" autocomplete="organization-title">'
+      + '<input id="rf-org" type="text" placeholder="Organisation *" autocomplete="organization">'
+      + '<input id="rf-email" type="email" placeholder="Work email *" autocomplete="email">'
       + '</div>'
-      + '<p class="rep-note">The full Index — with evidence instead of self-assessment — is the work of a four-week Decision Sprint. Email the report to receive the per-domain follow-up questions, or simply to keep your result.</p>';
+      + '<input id="rf-web" type="text" tabindex="-1" autocomplete="off" style="position:absolute; left:-5000px" aria-hidden="true">'
+      + '<div class="ass-nav" style="margin-top:14px">'
+      + '<button class="ass-btn ghost" id="ass-redo">Retake</button>'
+      + '<button class="ass-btn" id="rf-send" type="button">Send me my report</button>'
+      + '</div>'
+      + '<p class="rep-note" id="rf-msg">Sent directly from Samture — no mail app needed on your side. The full Index, with evidence instead of self-assessment, is the work of a four-week Decision Sprint.</p>'
+      + '</div>';
 
     document.getElementById("ass-redo").onclick = () => { answers.forEach(a => a.fill(null)); step = 0; render(); scrollTop(); };
-    const lines = D.map((d, i) => d.n + ": " + ds[i] + "/100 (" + (ds[i] > 50 ? "strengthen" : "priority") + ")").join("\n");
-    const mailBody = "Dear Samture team,\n\nI completed the Samture readiness assessment.\n\nOverall readiness: " + overall + "/100 — " + level[0] + "\n\n" + lines + "\n\nWhere to begin: " + begin.join(" and ") + "\n\nPlease send me the per-domain follow-up questions.\n\nName:\nRole:\nOrganisation:";
-    document.getElementById("ass-mail").href = "mailto:operations@samture.com?subject=" + encodeURIComponent("Readiness assessment: " + overall + "/100 — " + level[0]) + "&body=" + encodeURIComponent(mailBody);
+    document.getElementById("rf-send").addEventListener("click", function(){
+      const btn = this, val = id => (document.getElementById(id).value || "").trim();
+      const name = val("rf-name"), role = val("rf-role"), org = val("rf-org"), email = val("rf-email");
+      const msg = document.getElementById("rf-msg");
+      if (!name || !role || !org || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+        msg.textContent = "Please fill in your name, role, organisation and a valid work email."; msg.style.color = "#B4552D"; return;
+      }
+      btn.disabled = true; btn.textContent = "Sending…";
+      fetch("https://madelein-31586--samture-report.modal.run/report", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email, name: name, role: role, organisation: org, website: val("rf-web"), answers: [].concat.apply([], answers) })
+      }).then(r => { if (!r.ok) throw 0; return r.json(); }).then(() => {
+        document.getElementById("rep-form").innerHTML = '<p class="rep-form-t" style="color:#128B89">Your report is on its way to ' + email + ' — check your inbox in a minute. It lands with our team as well; expect a personal follow-up.</p>';
+      }).catch(() => {
+        btn.disabled = false; btn.textContent = "Send me my report";
+        msg.textContent = "Sending failed — please email operations@samture.com and we will send your report manually."; msg.style.color = "#B4552D";
+      });
+    });
   }
 
   render();
