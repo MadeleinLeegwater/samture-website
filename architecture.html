@@ -62,9 +62,11 @@
   .diagram { min-width: 680px; display: grid; grid-template-columns: 1fr 200px; gap: 12px; }
   .d-main { display: flex; flex-direction: column; }
 
-  .d-band { background: var(--navy); color: var(--cloud); border-radius: 2px; padding: 14px 18px; text-align: center; }
+  .d-band { background: var(--navy); color: var(--cloud); border-radius: 2px; padding: 14px 18px; }
+  .d-band .head { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; flex-wrap: wrap; }
   .d-band .t { font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
-  .d-band .s { display: block; font-size: 11.5px; color: var(--cloud-muted); margin-top: 2px; }
+  .d-band .role { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--teal); font-weight: 700; }
+  .d-band .s { display: block; font-size: 12.5px; color: #B9B9CC; margin-top: 3px; }
 
   .d-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
   .d-cell { background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--teal); border-radius: 2px; padding: 12px 12px 10px; }
@@ -76,24 +78,31 @@
   .d-layer .t { font-size: 14px; font-weight: 700; color: color-mix(in srgb, var(--lc, var(--ink)) 75%, var(--ink)); }
   .d-layer .role { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--lc, var(--teal-deep)); font-weight: 700; }
   .d-layer .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
-  .chip { font-size: 10.5px; letter-spacing: .04em; color: var(--ink); background: color-mix(in srgb, var(--lc, var(--teal)) 14%, var(--card)); border: 1px solid color-mix(in srgb, var(--lc, var(--teal)) 55%, transparent); border-radius: 2px; padding: 3px 8px; white-space: nowrap; }
+  .chip { font-size: 11px; letter-spacing: .04em; color: var(--ink); background: color-mix(in srgb, var(--lc, var(--teal)) 14%, var(--card)); border: 1px solid color-mix(in srgb, var(--lc, var(--teal)) 55%, transparent); border-radius: 2px; padding: 3px 8px; white-space: nowrap; }
+  .d-layer .note { font-size: 11.5px; color: var(--ink-muted); line-height: 1.55; margin: 9px 0 0; }
+  .d-layer .note b { color: color-mix(in srgb, var(--lc, var(--ink)) 70%, var(--ink)); font-weight: 600; }
   .d-layer.l-exec  { --lc: var(--seafoam); --lt: rgba(79,174,135,.18); }
   .d-layer.l-core  { --lc: var(--teal-deep); --lt: rgba(34,184,181,.24); box-shadow: inset 0 0 0 1px rgba(18,139,137,.45); }
   .d-layer.l-trust { --lc: var(--petrol); --lt: rgba(15,110,116,.16); }
 
-  .d-arrow { display: grid; place-items: center; padding: 6px 0; color: var(--teal-deep); font-size: 17px; font-weight: 700; line-height: 1; }
-  .d-arrow small { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-muted); margin-left: 10px; }
+  .d-arrow { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 5px 0; color: var(--teal-deep); font-size: 22px; font-weight: 700; line-height: 1; }
+  .d-arrow small { font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--petrol); font-weight: 600; }
 
   .d-spine { display: flex; flex-direction: column; gap: 12px; }
-  .d-side { flex: 1; border: 1px dashed color-mix(in srgb, var(--teal-deep) 70%, transparent); background: rgba(34,184,181,.12); border-radius: 2px; padding: 16px 14px; display: flex; flex-direction: column; justify-content: center; gap: 8px; text-align: center; }
+  .d-side { flex: 1; border: 1px solid color-mix(in srgb, var(--teal-deep) 45%, transparent); border-left: 4px solid var(--teal-deep); background: rgba(34,184,181,.12); border-radius: 2px; padding: 16px 14px; display: flex; flex-direction: column; justify-content: center; gap: 8px; text-align: center; }
   .d-side .t { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--teal-deep); }
   .d-side .s { font-size: 11px; color: var(--ink-muted); line-height: 1.6; }
   .d-caption { margin: 26px 0 0; font-size: 13px; color: var(--ink-muted); max-width: 72ch; }
   .d-caption b { color: var(--ink); }
   @media (max-width: 760px) {
     .diagram { grid-template-columns: 1fr; min-width: 0; }
-    .d-spine { flex-direction: row; }
+    .diagram-frame { overflow-x: visible; }
+    .d-spine { flex-direction: column; }
     .d-row { grid-template-columns: 1fr 1fr; }
+    .chip { white-space: normal; line-height: 1.45; }
+    .d-layer { padding: 14px 14px 12px; }
+    .d-band { padding: 13px 14px; }
+    .d-arrow small { text-align: center; }
   }
 
   /* ————— stats ————— */
@@ -104,20 +113,26 @@
   .stat .n small { font-size: 20px; color: var(--ink-muted); font-weight: 400; }
   .stat .l { display: block; font-size: 13px; font-weight: 600; margin-top: 10px; }
   .stat .d { display: block; font-size: 12px; color: var(--ink-muted); line-height: 1.6; margin-top: 4px; }
+  /* laag-kleursysteem: navy = kader (L4 + L0) · seafoam = L3 execution · teal = L2 semantic core · petrol = L1 trust engine
+     alle drie de stats zijn L2-uitkomsten en dragen daarom dezelfde teal-deep */
   .stat.s-teal { --sc: var(--teal-deep); }
-  .stat.s-blue { --sc: var(--petrol); }
-  .stat.s-violet { --sc: var(--seafoam); }
+  .stat.s-blue { --sc: var(--teal-deep); }
+  .stat.s-violet { --sc: var(--teal-deep); }
   .stats-note { margin-top: 18px; font-size: 12px; color: var(--ink-muted); max-width: 72ch; }
+  .midcta { margin-top: 30px; font-size: 14px; }
+  .midcta a { color: var(--teal-deep); font-weight: 600; text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--teal-deep) 45%, transparent); padding-bottom: 2px; }
+  .midcta a:hover { border-bottom-color: var(--teal-deep); }
 
   /* ————— principles ————— */
   .band-white { background: var(--card); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .principles { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 56px); margin-top: 44px; }
   @media (max-width: 720px) { .principles { grid-template-columns: 1fr; } }
+  /* rules dragen de kleur van de laag waar ze over gaan: structuur = L4 navy, compliance & keys = L1 petrol, meaning = L2 teal */
   .principle { border-top: 3px solid var(--pc, var(--teal)); padding-top: 18px; }
-  .principle:nth-child(1) { --pc: var(--teal); }
+  .principle:nth-child(1) { --pc: var(--navy); }
   .principle:nth-child(2) { --pc: var(--petrol); }
-  .principle:nth-child(3) { --pc: var(--seafoam); }
-  .principle:nth-child(4) { --pc: var(--navy); }
+  .principle:nth-child(3) { --pc: var(--petrol); }
+  .principle:nth-child(4) { --pc: var(--teal-deep); }
   .principle h3 { font-weight: 600; font-size: 17px; margin: 0 0 8px; }
   .principle p { margin: 0; font-size: 14.5px; color: var(--ink-muted); line-height: 1.65; }
 
@@ -164,7 +179,7 @@
       <div class="diagram">
         <div class="d-main">
           <div class="d-band">
-            <span class="t">Orchestration &amp; Governance</span>
+            <div class="head"><span class="t">Orchestration &amp; Governance</span><span class="role">Layer 4 · the accountable layer</span></div>
             <span class="s">one accountable architect · strategy, delivery and partner coordination under a single accountability</span>
           </div>
           <div class="d-arrow" aria-hidden="true">▲</div>
@@ -178,15 +193,17 @@
           <div class="d-layer l-exec">
             <div class="head"><span class="t">AI Execution &amp; Agentic Workflows</span><span class="role">Layer 3</span></div>
             <div class="chips">
-              <span class="chip">agents &amp; copilots</span><span class="chip">conversational AI</span><span class="chip">workflow automation</span><span class="chip">guardrails &amp; QA evaluation</span><span class="chip">grounded generation</span><span class="chip">model-agnostic — any LLM, incl. Arabic (Jais, Falcon)</span>
+              <span class="chip">agents &amp; copilots</span><span class="chip">conversational AI</span><span class="chip">workflow automation</span><span class="chip">guardrails &amp; QA evaluation</span><span class="chip">grounded generation</span>
             </div>
+            <p class="note"><b>Model-agnostic:</b> any LLM, including Arabic models such as Jais and Falcon.</p>
           </div>
           <div class="d-arrow" aria-hidden="true">▲<small>answers grounded in meaning, not model guesses</small></div>
           <div class="d-layer l-core">
             <div class="head"><span class="t">Knowledge &amp; Intelligence — the semantic core</span><span class="role">Layer 2 · the differentiator</span></div>
             <div class="chips">
-              <span class="chip">W3C standards: RDF / OWL / SKOS / SPARQL — no property graphs</span><span class="chip">knowledge graph</span><span class="chip">semantic APIs</span><span class="chip">multi-hop reasoning</span><span class="chip">grounded retrieval</span><span class="chip">no hallucinations — answers only from verified facts</span><span class="chip">linked regulation &amp; sector knowledge</span>
+              <span class="chip">knowledge graph</span><span class="chip">semantic APIs</span><span class="chip">multi-hop reasoning</span><span class="chip">grounded retrieval</span><span class="chip">linked regulation &amp; sector knowledge</span>
             </div>
+            <p class="note"><b>W3C standards — RDF, OWL, SKOS, SPARQL</b> — deliberately no property graphs, so meaning stays portable. No hallucinations: answers come only from verified facts.</p>
           </div>
           <div class="d-arrow" aria-hidden="true">▲<small>only governed, protected data becomes knowledge</small></div>
           <div class="d-layer l-trust">
@@ -204,8 +221,8 @@
           </div>
           <div class="d-arrow" aria-hidden="true">▲</div>
           <div class="d-band">
-            <span class="t">Sovereign Infrastructure</span>
-            <span class="s">edge-first, in-country where regulation requires it — Layer 0, the physical foundation</span>
+            <div class="head"><span class="t">Sovereign Infrastructure</span><span class="role">Layer 0 · the physical foundation</span></div>
+            <span class="s">edge-first, in-country where regulation requires it</span>
           </div>
         </div>
         <div class="d-spine">
@@ -240,6 +257,7 @@
       </div>
     </div>
     <p class="stats-note">Benchmarks as reported across our semantic-platform ecosystem; your numbers will be different, and establishing them for your landscape is precisely what the Decision Sprint does. One more thing fewer tokens buy: with data centres now measured in trillions of litres of water, a query that costs a fraction is also the responsible way to run AI at scale.</p>
+    <p class="midcta"><a href="contact.html">Walk through it with your own landscape →</a></p>
   </div>
 </section>
 
