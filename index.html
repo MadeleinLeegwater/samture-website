@@ -332,6 +332,9 @@
   .manifesto b, blockquote.board b { font-weight: 500; }
   ol.questions li { font-weight: 400; }
   :focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+  #film .film-frame { max-width: 880px; margin-top: 34px; }
+  .film-video { width: 100%; display: block; border-radius: 2px; border: 1px solid rgba(34,184,181,.35); box-shadow: 0 24px 70px rgba(0,0,0,.45); background: #101020; }
+  #film .film-note { max-width: 60ch; font-size: 15.5px; color: var(--cloud-muted); margin: 0; }
 </style>
 
 <header>
@@ -387,6 +390,21 @@
       <li>Where should we begin?</li>
       <li>What will create the highest business value?</li>
     </ol>
+  </div>
+</section>
+
+<section id="film">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">How we work</p>
+      <h2>See the method run — <b>72 seconds</b>.</h2>
+      <p class="film-note">Five orchestrated layers, every hand-off encrypted, every step traceable. This is what working with Samture looks like, live.</p>
+      <div class="film-frame">
+        <video class="film-video" controls preload="none" playsinline poster="how-we-work-poster.jpg">
+          <source src="how-we-work.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
   </div>
 </section>
 
