@@ -835,34 +835,53 @@
 </style>
 
 <style>
-#nyra-launcher{position:fixed;right:22px;bottom:22px;z-index:9999;height:52px;padding:0 18px 0 8px;border-radius:26px;background:var(--teal);color:var(--deep);border:none;cursor:pointer;box-shadow:0 6px 18px rgba(26,26,46,.22);display:flex;align-items:center;gap:10px;transition:transform .2s ease;font-family:var(--sans)}
+/* Nyra defines its own colour/font variables, scoped to its own elements.
+   Deliberately NOT reusing the host page's --teal/--card/etc: samture-concept.html
+   (the homepage) uses an older, incompatible variable set (no --card, no --line),
+   which silently made the whole widget transparent there. Self-contained = safe
+   on every page regardless of what that page's own CSS happens to define. */
+#nyra-launcher, #nyra-panel {
+  --nyra-teal:#22B8B5; --nyra-teal-deep:#128B89; --nyra-navy:#1A1A2E; --nyra-deep:#131320;
+  --nyra-card:#FFFFFF; --nyra-paper:#F7F5EF; --nyra-ink:#1A1A2E; --nyra-ink-muted:#45456B;
+  --nyra-cloud:#F7F5EF; --nyra-cloud-muted:#9C9CB2; --nyra-line:rgba(26,26,46,.14);
+  --nyra-sans:'Montserrat','Avenir Next','Segoe UI','Helvetica Neue',Arial,sans-serif;
+}
+#nyra-launcher{position:fixed;right:22px;bottom:22px;z-index:999999;height:52px;padding:0 18px 0 8px;border-radius:26px;background:var(--nyra-teal);color:var(--nyra-deep);border:none;cursor:pointer;box-shadow:0 6px 18px rgba(26,26,46,.22);display:flex;align-items:center;gap:10px;transition:transform .2s ease;font-family:var(--nyra-sans)}
 #nyra-launcher:hover{transform:scale(1.04)}
-#nyra-launcher .nyra-mono{flex:none;width:36px;height:36px;border-radius:50%;background:var(--navy);color:var(--cloud);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px}
+#nyra-launcher .nyra-mono{flex:none;width:36px;height:36px;border-radius:50%;background:var(--nyra-navy);color:var(--nyra-cloud);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px}
 #nyra-launcher .nyra-label{font-weight:700;font-size:13px;white-space:nowrap}
-#nyra-panel{position:fixed;right:22px;bottom:84px;z-index:9999;width:340px;max-width:calc(100vw - 32px);max-height:min(520px,70vh);background:var(--card);border:1px solid var(--line);border-top:4px solid var(--teal-deep);border-radius:4px;box-shadow:0 18px 40px rgba(26,26,46,.22);display:none;flex-direction:column;overflow:hidden;font-family:var(--sans)}
+#nyra-launcher.nyra-hide{display:none}
+@media (max-width:480px){
+  #nyra-launcher{padding:0;width:52px;justify-content:center}
+  #nyra-launcher .nyra-label{display:none}
+}
+#nyra-panel{position:fixed;right:22px;bottom:84px;z-index:999999;width:340px;max-width:calc(100vw - 32px);max-height:min(520px,70vh);background:var(--nyra-card);border:1px solid var(--nyra-line);border-top:4px solid var(--nyra-teal-deep);border-radius:4px;box-shadow:0 18px 40px rgba(26,26,46,.22);display:none;flex-direction:column;overflow:hidden;font-family:var(--nyra-sans)}
 #nyra-panel.open{display:flex}
-#nyra-head{background:var(--navy);color:var(--cloud);padding:14px 16px;display:flex;align-items:center;gap:10px}
+@media (max-width:480px){
+  #nyra-panel{right:16px;left:16px;bottom:16px;width:auto;max-width:none}
+}
+#nyra-head{background:var(--nyra-navy);color:var(--nyra-cloud);padding:14px 16px;display:flex;align-items:center;gap:10px}
 #nyra-head-text{flex:1}
-.nyra-avatar{flex:none;width:32px;height:32px;border-radius:50%;background:var(--teal);color:var(--deep);display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-weight:700;font-size:14px}
+.nyra-avatar{flex:none;width:32px;height:32px;border-radius:50%;background:var(--nyra-teal);color:var(--nyra-deep);display:flex;align-items:center;justify-content:center;font-family:var(--nyra-sans);font-weight:700;font-size:14px}
 #nyra-head b{font-size:14px;font-weight:700}
-#nyra-head span{display:block;font-size:11px;color:var(--cloud-muted);margin-top:2px}
-#nyra-close{background:none;border:none;color:var(--cloud-muted);font-size:20px;line-height:1;cursor:pointer;padding:0 4px}
-#nyra-close:hover{color:var(--cloud)}
-#nyra-msgs{flex:1;overflow-y:auto;padding:14px 16px;display:flex;flex-direction:column;gap:10px;font-size:13.5px;color:var(--ink)}
+#nyra-head span{display:block;font-size:11px;color:var(--nyra-cloud-muted);margin-top:2px}
+#nyra-close{background:none;border:none;color:var(--nyra-cloud-muted);font-size:20px;line-height:1;cursor:pointer;padding:0 4px}
+#nyra-close:hover{color:var(--nyra-cloud)}
+#nyra-msgs{flex:1;overflow-y:auto;padding:14px 16px;display:flex;flex-direction:column;gap:10px;font-size:13.5px;color:var(--nyra-ink);background:var(--nyra-card)}
 .nyra-m{max-width:85%;padding:9px 12px;border-radius:3px;line-height:1.5;white-space:pre-wrap}
-.nyra-m.user{align-self:flex-end;background:var(--paper);border:1px solid var(--line)}
-.nyra-m.bot{align-self:flex-start;background:color-mix(in srgb, var(--teal) 10%, var(--card));border:1px solid color-mix(in srgb, var(--teal) 30%, transparent)}
-.nyra-m.book a{color:var(--teal-deep);font-weight:700}
+.nyra-m.user{align-self:flex-end;background:var(--nyra-paper);border:1px solid var(--nyra-line)}
+.nyra-m.bot{align-self:flex-start;background:color-mix(in srgb, var(--nyra-teal) 10%, var(--nyra-card));border:1px solid color-mix(in srgb, var(--nyra-teal) 30%, transparent)}
+.nyra-m.book a{color:var(--nyra-teal-deep);font-weight:700}
 .nyra-typing{display:flex;align-items:center;gap:8px;padding:4px 2px}
 .nyra-typing-dots{display:flex;gap:4px}
-.nyra-typing-dots span{width:6px;height:6px;border-radius:50%;background:var(--teal-deep);opacity:.4;animation:nyra-blink 1.2s infinite}
+.nyra-typing-dots span{width:6px;height:6px;border-radius:50%;background:var(--nyra-teal-deep);opacity:.4;animation:nyra-blink 1.2s infinite}
 .nyra-typing-dots span:nth-child(2){animation-delay:.2s}
 .nyra-typing-dots span:nth-child(3){animation-delay:.4s}
-.nyra-typing-clock{font-size:11.5px;color:var(--ink-muted);font-variant-numeric:tabular-nums}
+.nyra-typing-clock{font-size:11.5px;color:var(--nyra-ink-muted);font-variant-numeric:tabular-nums}
 @keyframes nyra-blink{0%,80%,100%{opacity:.25}40%{opacity:.9}}
-#nyra-form{border-top:1px solid var(--line);padding:10px;display:flex;gap:8px}
-#nyra-input{flex:1;border:1px solid var(--line);border-radius:2px;padding:9px 10px;font-family:var(--sans);font-size:13px;color:var(--ink);background:var(--paper);resize:none}
-#nyra-send{background:var(--teal);color:var(--deep);border:none;border-radius:2px;padding:0 14px;font-weight:700;font-size:12.5px;cursor:pointer}
+#nyra-form{border-top:1px solid var(--nyra-line);padding:10px;display:flex;gap:8px;background:var(--nyra-card)}
+#nyra-input{flex:1;border:1px solid var(--nyra-line);border-radius:2px;padding:9px 10px;font-family:var(--nyra-sans);font-size:13px;color:var(--nyra-ink);background:var(--nyra-paper);resize:none}
+#nyra-send{background:var(--nyra-teal);color:var(--nyra-deep);border:none;border-radius:2px;padding:0 14px;font-weight:700;font-size:12.5px;cursor:pointer}
 #nyra-send:disabled{opacity:.5;cursor:default}
 #nyra-website{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
 </style>
@@ -957,9 +976,13 @@
 
   launcher.addEventListener("click", function(){
     panel.classList.toggle("open");
+    launcher.classList.toggle("nyra-hide", panel.classList.contains("open"));
     if(panel.classList.contains("open")) input.focus();
   });
-  document.getElementById("nyra-close").addEventListener("click", function(){ panel.classList.remove("open"); });
+  document.getElementById("nyra-close").addEventListener("click", function(){
+    panel.classList.remove("open");
+    launcher.classList.remove("nyra-hide");
+  });
 
   form.addEventListener("submit", function(e){
     e.preventDefault();
