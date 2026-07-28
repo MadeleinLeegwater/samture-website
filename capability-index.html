@@ -406,6 +406,7 @@
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: email, name: name, role: role, organisation: org, website: val("rf-web"), answers: [].concat.apply([], answers) })
       }).then(r => { if (!r.ok) throw 0; return r.json(); }).then(() => {
+        if (window.plausible) window.plausible("Capability Index Report");
         document.getElementById("rep-form").innerHTML = '<p class="rep-form-t" style="color:#128B89">Your report is on its way to ' + email + ' — check your inbox in a minute. It lands with our team as well; expect a personal follow-up.</p>';
       }).catch(() => {
         btn.disabled = false; btn.textContent = "Send me my report";
