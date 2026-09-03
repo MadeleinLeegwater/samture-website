@@ -26,6 +26,9 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"VideoObject","name":"How we work — the Samture method in 90 seconds","description":"Inside Samture's delivery telemetry: five orchestrated layers, every hand-off encrypted, every step traceable — and an architecture you can watch being built.","thumbnailUrl":"https://samture.com/how-we-work-poster.jpg","contentUrl":"https://samture.com/how-we-work.mp4","uploadDate":"2026-07-18","duration":"PT1M30S","publisher":{"@type":"Organization","name":"Samture","logo":{"@type":"ImageObject","url":"https://samture.com/og-image.png"}}}
 </script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"VideoObject","name":"From fragmented knowledge to regional intelligence — Samture in 45 seconds","description":"Knowledge across the Gulf is everywhere and connected to nothing. The answer was never a better model: it is the foundation underneath it — connected, governed, traceable — and the people building it.","thumbnailUrl":"https://samture.com/samture-gcc-film-poster.jpg","contentUrl":"https://samture.com/samture-gcc-film.mp4","uploadDate":"2026-09-03","duration":"PT45S","publisher":{"@type":"Organization","name":"Samture","logo":{"@type":"ImageObject","url":"https://samture.com/og-image.png"}}}
+</script>
 </head>
 <body>
 <style>
@@ -341,9 +344,9 @@
   .manifesto b, blockquote.board b { font-weight: 500; }
   ol.questions li { font-weight: 400; }
   :focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
-  #film .film-frame { max-width: 880px; margin-top: 34px; }
+  #film .film-frame, #film-gcc .film-frame { max-width: 880px; margin-top: 34px; }
   .film-video { width: 100%; display: block; border-radius: 2px; border: 1px solid rgba(34,184,181,.35); box-shadow: 0 24px 70px rgba(0,0,0,.45); background: #101020; }
-  #film .film-note { max-width: 60ch; font-size: 15.5px; color: var(--cloud-muted); margin: 0; }
+  #film .film-note, #film-gcc .film-note { max-width: 60ch; font-size: 15.5px; color: var(--cloud-muted); margin: 0; }
 </style>
 
 <header>
@@ -383,6 +386,23 @@
     </div>
   </div>
 </div>
+
+<!-- De GCC-merkfilm. Bron en productie: projecten/merkfilm/ in Het Mainframe.
+     mp4 en poster staan rechtstreeks in dist/ (de build raakt alleen html aan), net als how-we-work. -->
+<section id="film-gcc">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">From fragmented knowledge to regional intelligence</p>
+      <h2>What has to be true before AI can be trusted — <b>in 45 seconds</b>.</h2>
+      <p class="film-note">Knowledge across the Gulf is everywhere and connected to nothing. The answer was never a better model: it is the foundation underneath it — and the people building it.</p>
+      <div class="film-frame">
+        <video class="film-video" controls preload="none" playsinline poster="samture-gcc-film-poster.jpg">
+          <source src="samture-gcc-film.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="on-paper" id="confidence">
   <div class="wrap dc-grid">
