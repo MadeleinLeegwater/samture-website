@@ -1,0 +1,28 @@
+# Samture
+
+> Samture is a boutique AI architecture practice in Dubai, working with organisations in the United Arab Emirates and the wider Gulf. It designs the foundation that AI depends on: architecture, data governance, knowledge graphs, encrypted trust engineering and sovereign infrastructure, built as one connected structure rather than as separate advice. Every engagement is led personally by founder Madelein Leegwater.
+
+Samture works with organisations in regulated sectors: financial services, government, healthcare and ICT. Engagements begin with a structural assessment, never with a tool. Areas of work: AI architecture, Knowledge graphs, Semantic layer, Data governance, AI governance and compliance, Encrypted trust engineering, Sovereign AI infrastructure, Ecosystem orchestration, AI readiness assessment.
+
+## Core pages
+
+- [What we do](https://samture.com/): Samture takes organisations from AI strategy to trusted production. Boutique AI architecture for regulated industries in the UAE and GCC.
+- [Method](https://samture.com/method.html): The Samture Trusted-Production Method: Decision Confidence in four weeks. Not a better consultancy — a different discipline.
+- [Architecture](https://samture.com/architecture.html): The Samture Trusted Ecosystem Architecture: five deliberate layers from sovereign infrastructure to governed AI execution for the GCC's regulatory reality.
+- [Engagements](https://samture.com/engagements.html): Decision Sprint, Cornerstone Sprint, Scale: no pilots, no proofs of concept — every step is built to reach production.
+- [Ecosystem](https://samture.com/ecosystem.html): Boutique at the helm, never small behind it: some twelve specialised partners across Europe, the Gulf and Asia, orchestrated under one accountability.
+- [Excellence Center](https://samture.com/excellence-center.html): The foundation the Gulf needs is already being built: some 250 certified people across Samture's delivery partners, measured against one standard, and a region growing that capacity fast.
+- [Capability Index](https://samture.com/capability-index.html): Eight domains decide whether AI compounds or collapses. Test your organisation's foundation with the Samture Capability Index.
+- [Talent](https://samture.com/talent.html): Trusted AI is built by trusted people. Join the Samture ecosystem as a specialist, or learn the craft of knowledge engineering.
+- [About](https://samture.com/about.html): Madelein Leegwater, founder of Samture: 25 years building the systems organisations depend on. Trust is architecture, not intention.
+- [Contact](https://samture.com/contact.html): Begin a conversation with Samture: WhatsApp, schedule a call directly, or email. No deck, no pitch.
+
+## Insights
+
+- [AI's Last Mile](https://samture.com/insights/ais-last-mile.html): Spending on AI in the Emirates went up 105% in a year and the average maturity score came out at 48 out of 100. The gap is not wasted money, it is the part of the work that never appears in a business case.
+- [The Mark Only Goes One Way](https://samture.com/insights/the-mark-only-goes-one-way.html): Since 2 August, machine involvement in a piece of work can be demonstrated. Human involvement still cannot. And the data minimisation policy you were right to write is widening the gap between the two.
+- [The Chair Nobody Is Sitting In](https://samture.com/insights/the-chair-nobody-is-sitting-in.html): The DIFC has required a named Autonomous Systems Officer for high-risk AI since 2023. Almost nobody has filled the seat, and most architectures could not give that person anything to work with.
+
+## Optional
+
+- [Privacy](https://samture.com/privacy.html): Exactly what samture.com collects, which processors are involved, and how long anything is kept. No cookies, no tracking, no advertising.
