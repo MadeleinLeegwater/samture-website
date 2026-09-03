@@ -21,7 +21,7 @@
   plausible.init()
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","name":"Capability Index — Samture","url":"https://samture.com/capability-index.html","description":"Eight domains decide whether AI compounds or collapses. Test your organisation's foundation with the Samture Capability Index.","isPartOf":{"@type":"WebSite","name":"Samture","url":"https://samture.com"}}
+{"@context":"https://schema.org","@type":"WebPage","name":"Capability Index — Samture","url":"https://samture.com/capability-index.html","description":"Eight domains decide whether AI compounds or collapses. Test your organisation's foundation with the Samture Capability Index.","isPartOf":{"@type":"WebSite","@id":"https://samture.com/#website","name":"Samture","url":"https://samture.com","publisher":{"@id":"https://samture.com/#organization"}},"publisher":{"@id":"https://samture.com/#organization"},"about":{"@id":"https://samture.com/#organization"}}
 </script>
 </head>
 <body>
@@ -371,7 +371,7 @@
           const c = ds[i] >= 67 ? "#4FAE87" : ds[i] >= 34 ? "#128B89" : "#0F6E74";
           return '<div class="rep-row"><span class="dn">' + d.n + '</span><span class="bar"><i style="width:' + Math.max(4, ds[i]) + '%; background:' + c + '"></i></span><span class="pct">' + ds[i] + '</span></div>';
         }).join("")
-      + '<div class="rep-begin"><b>Where to begin: ' + begin.join(" and ") + '.</b>'
+      + '<div class="rep-begin">Where to begin: ' + begin.join(" and ") + '.'
       + (semLow ? ' And keep an eye on Semantic Intelligence — it is the layer almost nobody measures, and everything above it inherits its quality.'
                 : ' The Index is not a grade; it is an order of work. These two domains unlock the rest.') + '</div>'
       + '<div class="rep-advice">'
