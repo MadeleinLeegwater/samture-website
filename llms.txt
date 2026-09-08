@@ -19,6 +19,7 @@ Samture works with organisations in regulated sectors: financial services, gover
 
 ## Insights
 
+- [The Answer That Looked Complete](https://samture.com/insights/the-answer-that-looked-complete.html): The same question, asked five times of the same model over the same documents, produced four different answers and one non-answer. Every one of them looked finished. What it takes to make an answer repeatable, sourced and defensible, measured on Samture's own business.
 - [AI's Last Mile](https://samture.com/insights/ais-last-mile.html): Spending on AI in the Emirates went up 105% in a year and the average maturity score came out at 48 out of 100. The gap is not wasted money, it is the part of the work that never appears in a business case.
 - [The Mark Only Goes One Way](https://samture.com/insights/the-mark-only-goes-one-way.html): Since 2 August, machine involvement in a piece of work can be demonstrated. Human involvement still cannot. And the data minimisation policy you were right to write is widening the gap between the two.
 - [The Chair Nobody Is Sitting In](https://samture.com/insights/the-chair-nobody-is-sitting-in.html): The DIFC has required a named Autonomous Systems Officer for high-risk AI since 2023. Almost nobody has filled the seat, and most architectures could not give that person anything to work with.
