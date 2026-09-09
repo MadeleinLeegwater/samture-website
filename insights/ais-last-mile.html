@@ -640,8 +640,11 @@
   input.setAttribute("placeholder", L.placeholder);
   sendBtn.textContent = L.send;
 
-  var sessionId = sessionStorage.getItem("nyra_session") || (Date.now()+"-"+Math.random().toString(36).slice(2));
-  sessionStorage.setItem("nyra_session", sessionId);
+  /* Het sessie-id komt van de server; leeg laten bij het eerste bericht.
+     De server geeft er dan een terug en die bewaren we voor deze tab.
+     `history` is hier alleen nog om het gesprek opnieuw te tekenen na een
+     herlaadactie — het gesprek zelf staat op de server en gaat niet mee. */
+  var sessionId = sessionStorage.getItem("nyra_session") || "";
   var history = JSON.parse(sessionStorage.getItem("nyra_history") || "[]");
 
   function renderMsg(role, content, bookingUrl){
@@ -709,9 +712,13 @@
     showTyping();
     fetch(API, {
       method:"POST", headers:{"Content-Type":"application/json"},
-      body: JSON.stringify({messages:history, session_id:sessionId, website:""})
+      body: JSON.stringify({message:text, session_id:sessionId, website:""})
     }).then(function(r){ if(!r.ok) throw 0; return r.json(); }).then(function(data){
       hideTyping();
+      if(data.session_id){
+        sessionId = data.session_id;
+        sessionStorage.setItem("nyra_session", sessionId);
+      }
       renderMsg("assistant", data.reply || "…", data.booking_url);
       history.push({role:"assistant", content:data.reply || ""});
       sessionStorage.setItem("nyra_history", JSON.stringify(history));

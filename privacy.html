@@ -237,8 +237,9 @@
 
       <h2>How long we keep things</h2>
       <p>The email we send you, and our copy of it, stay in our mailboxes under normal business email retention, because they are part of a conversation with you.</p>
-      <p>To stop the assessment form being abused, our backend counts how many reports have been requested per day and per email address. Those counters are deleted automatically after three days: long enough to enforce a daily limit, too short to amount to a record of you. If you would like yours removed sooner, ask us and we will remove it.</p>
-      <p>Conversations with Nyra are not stored by us beyond what is described above. Plausible statistics are aggregate and hold nothing that could be traced back to you.</p>
+      <p>To stop the assessment form and Nyra being abused, our backend keeps a few counters: how many reports and conversations there have been per day, per email address, and per visitor. The per-visitor counter is a one-way hash that mixes your network address with the date, so it cannot be turned back into an address and means nothing the next day. We do not store network addresses themselves.</p>
+      <p>Your conversation with Nyra is held on our backend for the length of that conversation, so that Nyra can follow what you said earlier without your browser having to send the conversation back to us each time. It is not linked to your name unless you give us one.</p>
+      <p>All of this is deleted automatically after three days: long enough to enforce a daily limit and to finish a conversation, too short to amount to a record of you. If you would like yours removed sooner, ask us and we will remove it. Plausible statistics are aggregate and hold nothing that could be traced back to you.</p>
 
       <h2>Cookies</h2>
       <p>This site sets no cookies. There is no consent banner because there is nothing to consent to.</p>
@@ -480,8 +481,11 @@
   input.setAttribute("placeholder", L.placeholder);
   sendBtn.textContent = L.send;
 
-  var sessionId = sessionStorage.getItem("nyra_session") || (Date.now()+"-"+Math.random().toString(36).slice(2));
-  sessionStorage.setItem("nyra_session", sessionId);
+  /* Het sessie-id komt van de server; leeg laten bij het eerste bericht.
+     De server geeft er dan een terug en die bewaren we voor deze tab.
+     `history` is hier alleen nog om het gesprek opnieuw te tekenen na een
+     herlaadactie — het gesprek zelf staat op de server en gaat niet mee. */
+  var sessionId = sessionStorage.getItem("nyra_session") || "";
   var history = JSON.parse(sessionStorage.getItem("nyra_history") || "[]");
 
   function renderMsg(role, content, bookingUrl){
@@ -549,9 +553,13 @@
     showTyping();
     fetch(API, {
       method:"POST", headers:{"Content-Type":"application/json"},
-      body: JSON.stringify({messages:history, session_id:sessionId, website:""})
+      body: JSON.stringify({message:text, session_id:sessionId, website:""})
     }).then(function(r){ if(!r.ok) throw 0; return r.json(); }).then(function(data){
       hideTyping();
+      if(data.session_id){
+        sessionId = data.session_id;
+        sessionStorage.setItem("nyra_session", sessionId);
+      }
       renderMsg("assistant", data.reply || "…", data.booking_url);
       history.push({role:"assistant", content:data.reply || ""});
       sessionStorage.setItem("nyra_history", JSON.stringify(history));
