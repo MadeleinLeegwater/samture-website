@@ -12,6 +12,7 @@ Samture works with organisations in regulated sectors: financial services, gover
 - [Engagements](https://samture.com/engagements.html): Decision Sprint, Cornerstone Sprint, Scale: no pilots, no proofs of concept — every step is built to reach production.
 - [Ecosystem](https://samture.com/ecosystem.html): Boutique at the helm, never small behind it: some twelve specialised partners across Europe, the Gulf and Asia, orchestrated under one accountability.
 - [Excellence Center](https://samture.com/excellence-center.html): The foundation the Gulf needs is already being built: some 250 certified people across Samture's delivery partners, measured against one standard, and a region growing that capacity fast.
+- [Academy](https://samture.com/academy.html): Learn to build the foundation AI depends on, to the standard every builder on a Samture foundation is measured against: eight weeks of working environment, then the semantic layer over your own material.
 - [Capability Index](https://samture.com/capability-index.html): Eight domains decide whether AI compounds or collapses. Test your organisation's foundation with the Samture Capability Index.
 - [Talent](https://samture.com/talent.html): Trusted AI is built by trusted people. Join the Samture ecosystem as a specialist, or learn the craft of knowledge engineering.
 - [About](https://samture.com/about.html): Madelein Leegwater, founder of Samture: 25 years building the systems organisations depend on. Trust is architecture, not intention.
