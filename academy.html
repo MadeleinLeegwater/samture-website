@@ -578,6 +578,7 @@
             <option>United Arab Emirates</option><option>Saudi Arabia</option><option>Qatar</option>
             <option>Elsewhere in the Gulf</option><option>Outside the region</option>
           </select></div>
+        <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" style="position:absolute; left:-5000px" aria-hidden="true">
         <button type="submit">Send me the walkthrough</button>
         <p class="form-note">Used for this walkthrough and for that one announcement. Nothing is
           shared with third parties. See our <a href="privacy.html">privacy statement</a>.</p>
@@ -784,10 +785,13 @@
 </script>
 <script>
 /* Belangstelling voor het oprichterscohort. Zelfde backend-app als het
-   assessment; de route /interest moet daar nog bij (zie modal/website_modal.py).
-   Er wordt niets in de browser bewaard. */
+   assessment, route /interest in modal/website_modal.py.
+   Er wordt niets in de browser bewaard. Het verborgen veld `website` en de
+   invultijd `t` zijn voor het botfilter van 24 september 2026: de backend
+   verstuurt niets als het veld gevuld is of als `t` ontbreekt of te kort is. */
 (function () {
   var ENDPOINT = "https://madelein-31586--samture-report.modal.run/interest";
+  var geladen = Date.now();
   var form = document.getElementById('interest');
   if (!form) return;
   var msg = document.getElementById('formMsg');
@@ -806,7 +810,8 @@
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         name: form.name.value.trim(), email: email,
-        role: form.role.value.trim(), where: form.where.value
+        role: form.role.value.trim(), where: form.where.value,
+        website: form.website.value, t: Date.now() - geladen
       })
     }).then(function (r) {
       if (!r.ok) throw new Error(String(r.status));
