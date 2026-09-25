@@ -24,6 +24,9 @@
 {"@context":"https://schema.org","@type":"VideoObject","name":"Smart City Federated Twin — from separate digital twins to one investment picture, in 84 seconds","description":"Every road carries more than traffic: heat, weight, water and ten years of growth. Each part of a city already has its own digital twin, and each sees only its own part. Federate them on one shared understanding of every road, bridge and underpass, and a city can decide first: where to invest, in what order, and why.","thumbnailUrl":"https://samture.com/smart-city-poster.jpg","contentUrl":"https://samture.com/smart-city.mp4","uploadDate":"2026-09-28","duration":"PT1M24S","publisher":{"@type":"Organization","@id":"https://samture.com/#organization","name":"Samture","logo":{"@type":"ImageObject","url":"https://samture.com/og-image.png"}}}
 </script>
 <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"VideoObject","name":"Smart City Federated Twin, Abu Dhabi — from separate digital twins to one investment picture, in 84 seconds","description":"Four bridges carry the island's evening rush; freight now comes overland from the east coast by truck and train; new districts add cars and weight on the road. Each part already has its own digital twin. Connect them on one shared understanding of every road, bridge and underpass, and a city can decide first: where to invest, in what order, and why.","thumbnailUrl":"https://samture.com/smart-city-abu-dhabi-poster.jpg","contentUrl":"https://samture.com/smart-city-abu-dhabi.mp4","uploadDate":"2026-09-25","duration":"PT1M24S","publisher":{"@type":"Organization","@id":"https://samture.com/#organization","name":"Samture","logo":{"@type":"ImageObject","url":"https://samture.com/og-image.png"}}}
+</script>
+<script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebPage","name":"Smart City Federated Twin — Samture","url":"https://samture.com/smart-city.html","description":"From separate digital twins to one investment picture: Samture connects the systems a city already has into one shared understanding of every road, bridge and underpass, so it can see what is coming and decide where to invest first.","isPartOf":{"@type":"WebSite","@id":"https://samture.com/#website","name":"Samture","url":"https://samture.com","publisher":{"@id":"https://samture.com/#organization"}},"publisher":{"@id":"https://samture.com/#organization"},"about":{"@id":"https://samture.com/#organization"}}
 </script>
 </head>
@@ -190,6 +193,8 @@
   .film-frame { max-width:880px; margin-top:34px; }
   .film-video { width:100%; display:block; border-radius:2px; border:1px solid rgba(34,184,181,.35); box-shadow:0 24px 70px rgba(0,0,0,.45); background:#101020; }
   .film-note { max-width:60ch; font-size:15.5px; color:var(--cloud-muted); margin:18px 0 0; }
+  .film-kop { font-size:11px; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:var(--teal); margin:0 0 12px; }
+  .film-frame + .film-frame { margin-top:52px; }
   .fin h1 { color:var(--cloud); }
   ul.modules { list-style:none; margin:30px 0 0; padding:0; display:flex; flex-wrap:wrap; gap:8px; max-width:820px; }
   ul.modules li { font-size:13.5px; padding:9px 14px; border:1px solid var(--line); border-radius:2px; background:var(--card); color:var(--ink-muted); }
@@ -199,12 +204,22 @@
     <p class="eyebrow">A federated digital twin for connected infrastructure</p>
     <h1>From separate digital twins to one investment picture.</h1>
     <p class="lede">Roads, bridges, drainage, signals and lighting each have their own systems, and increasingly their own digital twin. The next ten years of growth and climate hit all of them at once. Samture connects what already exists, so a city can see what is coming and decide where to invest first.</p>
+    <!-- Twee films, een per stad. Abu Dhabi staat bovenaan zolang LIVEX loopt (29 september tot
+         1 oktober 2026); daarna mag Dubai weer eerst. Besluit Madelein 25 september 2026. -->
     <div class="film-frame">
+      <p class="film-kop">Abu Dhabi</p>
+      <video class="film-video" controls preload="none" playsinline poster="smart-city-abu-dhabi-poster.jpg">
+        <source src="smart-city-abu-dhabi.mp4" type="video/mp4">
+      </video>
+      <p class="film-note">The Smart City Federated Twin in 84 seconds: four bridges onto one island, a land bridge of trucks and trains from the east coast, and the districts still to come.</p>
+    </div>
+    <div class="film-frame">
+      <p class="film-kop">Dubai</p>
       <video class="film-video" controls preload="none" playsinline poster="smart-city-poster.jpg">
         <source src="smart-city.mp4" type="video/mp4">
       </video>
+      <p class="film-note">The same twin for Dubai: downtown after four, freight shifting from the east coast, Expo City and the new corridor.</p>
     </div>
-    <p class="film-note">The Smart City Federated Twin in 84 seconds: one road, and everything it carries.</p>
   </div>
 </section>
 
