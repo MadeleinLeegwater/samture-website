@@ -17,7 +17,7 @@ Samture works with organisations in regulated sectors: financial services, gover
 - [Capability Index](https://samture.com/capability-index.html): Eight domains decide whether AI compounds or collapses. Test your organisation's foundation with the Samture Capability Index.
 - [Talent](https://samture.com/talent.html): Trusted AI is built by trusted people. Join the Samture ecosystem as a specialist, or learn the craft of knowledge engineering.
 - [About](https://samture.com/about.html): Madelein Leegwater, founder of Samture: 25 years building the systems organisations depend on. Trust is architecture, not intention.
-- [Contact](https://samture.com/contact.html): Begin a conversation with Samture: WhatsApp, schedule a call directly, or email. No deck, no pitch.
+- [Contact](https://samture.com/contact.html): Begin a conversation with Samture: schedule a call directly, or email. No deck, no pitch.
 
 ## Insights
 
