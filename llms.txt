@@ -1,6 +1,6 @@
 # Samture
 
-> Samture is a boutique AI architecture practice in Dubai, working with organisations in the United Arab Emirates and the wider Gulf. It designs the foundation that AI depends on: architecture, data governance, knowledge graphs, encrypted trust engineering and sovereign infrastructure, built as one connected structure rather than as separate advice. Every engagement is led personally by founder Madelein Leegwater.
+> Samture is a boutique AI architecture practice in Dubai, working with organisations in the United Arab Emirates and the wider Gulf. It designs the foundation that AI depends on: architecture, data governance, knowledge graphs, encrypted trust engineering and sovereign infrastructure, built as one connected structure rather than as separate advice.
 
 Samture works with organisations in regulated sectors: financial services, government, healthcare and ICT. Engagements begin with a structural assessment, never with a tool. Areas of work: AI architecture, Knowledge graphs, Semantic layer, Data governance, AI governance and compliance, Encrypted trust engineering, Sovereign AI infrastructure, Ecosystem orchestration, AI readiness assessment.
 
