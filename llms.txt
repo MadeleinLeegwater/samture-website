@@ -6,11 +6,11 @@ Samture works with organisations in regulated sectors: financial services, gover
 
 ## Core pages
 
-- [What we do](https://samture.com/): Samture takes organisations from AI strategy to trusted production. Boutique AI architecture for regulated industries in the UAE and GCC.
+- [What we do](https://samture.com/): Samture takes organisations from AI strategy to trusted production. AI architecture for regulated industries in the UAE and GCC.
 - [Method](https://samture.com/method.html): The Samture Trusted-Production Method: Decision Confidence in four weeks. Not a better consultancy — a different discipline.
 - [Architecture](https://samture.com/architecture.html): The Samture Trusted Ecosystem Architecture: five deliberate layers from sovereign infrastructure to governed AI execution for the GCC's regulatory reality.
 - [Engagements](https://samture.com/engagements.html): Decision Sprint, Cornerstone Sprint, Scale: no pilots, no proofs of concept — every step is built to reach production.
-- [Ecosystem](https://samture.com/ecosystem.html): Boutique at the helm, never small behind it: some twelve specialised partners across Europe, the Gulf and Asia, orchestrated under one accountability.
+- [Ecosystem](https://samture.com/ecosystem.html): One accountable lead with an ecosystem built to scale: some twelve specialised partners across Europe, the Gulf and Asia, orchestrated under one accountability.
 - [Excellence Center](https://samture.com/excellence-center.html): The foundation the Gulf needs is already being built: some 250 certified people across Samture's delivery partners, measured against one standard, and a region growing that capacity fast.
 - [Academy](https://samture.com/academy.html): Learn to build the foundation AI depends on, to the standard every builder on a Samture foundation is measured against: eight weeks of working environment, then the semantic layer over your own material.
 - [UAE AI Strategy 2031 in practice: Solutions](https://samture.com/solutions.html): The foundation layer of the UAE National AI Strategy 2031, in practice: the Smart City Federated Twin, the Banking Knowledge Foundation, connected public services, an AI register that checks itself against the UAE AI Charter and a secure AI test bed.
