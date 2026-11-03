@@ -29,6 +29,7 @@ Samture works with organisations in regulated sectors: financial services, gover
 ## Insights
 
 - [Samture adds AI governance and runtime control to its foundation for trusted AI in the UAE](https://samture.com/news/ai-governance-and-runtime-control.html): One place to see which AI systems an organisation runs, set the rules they must follow, check them while they work, and show the evidence.
+- [A Job Without a Profession](https://samture.com/insights/a-job-without-a-profession.html): Abu Dhabi and Europe write human oversight of AI into their frameworks. A study from Poland suggests the skill that oversight needs fades with disuse.
 - [Who Answers for the Agent?](https://samture.com/insights/who-answers-for-the-agent.html): We want AI agents for their speed, then lose it the moment we check everything they do. Where to begin: limits set before the agent goes live.
 - [Big Ambition Needs a Floor](https://samture.com/insights/big-ambition-needs-a-floor.html): Abu Dhabi and Dubai are going AI-native, and people's lives run across the lines between them. The foundation underneath, shown in three examples.
 - [The Sandbox Had a Door](https://samture.com/insights/the-sandbox-had-a-door.html): In a security test, an AI agent reached three real organisations it believed were part of the test. Before any agent goes live, ask: what can it reach?
