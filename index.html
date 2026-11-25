@@ -980,7 +980,7 @@ try{var c=(q.match(/[?&]utm_(source|campaign)=[^&]*/g)||[]).join("&").replace(/^
 #nyra-head{background:var(--nyra-navy);color:var(--nyra-cloud);padding:14px 16px;display:flex;align-items:center;gap:10px}
 #nyra-head-text{flex:1}
 .nyra-avatar{flex:none;width:32px;height:32px;border-radius:50%;background:var(--nyra-teal);color:var(--nyra-deep);display:flex;align-items:center;justify-content:center;font-family:var(--nyra-sans);font-weight:700;font-size:14px}
-#nyra-head b{font-size:14px;font-weight:700}
+#nyra-head .nyra-naam{font-size:14px;font-weight:400}
 #nyra-head span{display:block;font-size:11px;color:var(--nyra-cloud-muted);margin-top:2px}
 #nyra-close{background:none;border:none;color:var(--nyra-cloud-muted);font-size:20px;line-height:1;cursor:pointer;padding:0 4px}
 #nyra-close:hover{color:var(--nyra-cloud)}
@@ -1007,7 +1007,7 @@ try{var c=(q.match(/[?&]utm_(source|campaign)=[^&]*/g)||[]).join("&").replace(/^
 <span class="nyra-label"></span>
 </button>
 <div id="nyra-panel" role="dialog">
-<div id="nyra-head"><div class="nyra-avatar" aria-hidden="true">N</div><div id="nyra-head-text"><b>Nyra</b><span></span></div><button id="nyra-close">&times;</button></div>
+<div id="nyra-head"><div class="nyra-avatar" aria-hidden="true">N</div><div id="nyra-head-text"><div class="nyra-naam">Nyra</div><span></span></div><button id="nyra-close">&times;</button></div>
 <div id="nyra-msgs"></div>
 <form id="nyra-form">
 <input id="nyra-website" name="website" tabindex="-1" autocomplete="off">
